@@ -1,0 +1,20 @@
+//use sass build in math module
+@use 'sass:math';
+
+// function to convert pixel to rem
+@function rem($px) {
+  @if (is-unitless($px)) {
+    @return math.div($px, 16) + rem;
+  } @else {
+    @error "Don't use unit with the rem function";
+  }
+}
+
+//function to convert pixel to em
+@function em($px) {
+  @if (is-unitless($px)) {
+    @return math.div($px, 16) + em;
+  } @else {
+    @error "Don't use unit with the em function";
+  }
+}
