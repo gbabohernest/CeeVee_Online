@@ -1,0 +1,81 @@
+/**
+* styles for signUp & signIn forms
+*/
+@use '../utils/' as u;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  //   height: 65vh;
+  padding: u.rem(20);
+
+  &__form {
+    // max-width: 400px;
+    // width: 100%;
+    // padding: u.rem(20px);
+    width: min(100% - u.rem(20), 400px);
+    margin-inline: auto;
+    padding: u.rem(30);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: u.rem(15px);
+
+      .label {
+        display: block;
+        // margin-bottom: u.rem(5);
+        margin: u.rem(10) 0;
+      }
+
+      .input {
+        width: 100%;
+        padding: u.rem(10);
+        border: 1px solid #ccc;
+        border-radius: u.rem(5);
+
+        &:focus {
+          outline: none;
+          border: none;
+          box-shadow: none;
+        }
+      }
+    }
+
+    .submit-btn-wrapper {
+      margin-top: u.rem(25);
+
+      .submit_btn {
+        width: 100%;
+        padding: u.rem(10);
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: u.rem(5);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+      margin-top: 15px;
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+    }
+  }
+}
