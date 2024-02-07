@@ -47,6 +47,16 @@
           box-shadow: none;
         }
       }
+
+      // when there is an error in the form, styles for error
+      .is-invalid {
+        border: 1px solid rgb(233, 62, 62);
+      }
+
+      .invalid-feedback {
+        font-size: u.rem(12);
+        color: rgb(233, 62, 62);
+      }
     }
 
     .submit-btn-wrapper {
@@ -69,8 +79,10 @@
     }
 
     p {
+      font-size: u.rem(11);
       text-align: center;
       margin-top: 15px;
+      color: gray;
 
       a {
         color: #007bff;
@@ -78,4 +90,18 @@
       }
     }
   }
+}
+
+/**
+ flash message styles
+*/
+.alert-success {
+  width: min(80% - u.rem(15), u.em(300));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: u.em(20);
+  padding: u.rem(15);
+  margin: u.rem(5) auto;
+  background-color: rgb(153, 196, 153);
 }
