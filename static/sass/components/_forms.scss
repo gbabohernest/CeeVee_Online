@@ -59,6 +59,24 @@
       }
     }
 
+    .checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: u.rem(13);
+
+      &__wrapper {
+        display: flex;
+        gap: u.rem(5);
+      }
+
+      .forgot-password {
+        a {
+          color: red;
+        }
+      }
+    }
+
     .submit-btn-wrapper {
       margin-top: u.rem(25);
 
@@ -95,7 +113,7 @@
 /**
  flash message styles
 */
-.alert-success {
+.alert {
   width: min(80% - u.rem(15), u.em(300));
   display: flex;
   justify-content: center;
@@ -103,5 +121,11 @@
   height: u.em(20);
   padding: u.rem(15);
   margin: u.rem(5) auto;
+  color: #ffff;
+}
+.alert-success {
   background-color: rgb(153, 196, 153);
+}
+.alert-danger {
+  background-color: rgb(233, 62, 62);
 }
