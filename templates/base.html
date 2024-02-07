@@ -45,7 +45,7 @@
       <div class="header__nav-wrapper">
         <nav class="navbar">
           <div class="navbar__left">
-            <a href="/" class="navbar__left__logo"
+            <a href="{{ url_for('home') }}" class="navbar__left__logo"
               ><h1>
                 <span class="first_letter_word">C</span>ee<span
                   class="fourth_letter"
@@ -55,7 +55,7 @@
             >
 
             <ul class="navbar__left__links">
-              <li><a href="/">Home</a></li>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
               <li><a href="/categories.html">Categories</a></li>
             </ul>
           </div>
@@ -63,14 +63,21 @@
           <div class="navbar__right">
             <ul>
               <li>
-                Sign in
-                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                <a href="{{ url_for('login') }}">
+                  Sign in
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </a>
               </li>
               <li>
-                Sign up
-                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <a href="{{ url_for('sign_up') }}">
+                  Sign up
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </a>
               </li>
-              <button class="sell">sell</button>
+              <!-- <button class="sell">sell</button> -->
+              <li>
+                <a href="#" class="sell">sell</a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -95,10 +102,10 @@
         {% if messages %}
           <!-- if there is message, loop through, category is the msg category -->
             {% for category, message in messages %}
-                  <div class="alert alert-{{ category }}">
-                        <!-- display message-->
-                        {{ message }}
-                  </div>
+                    <div class="alert alert-{{ category }}">
+                          <!-- display message-->
+                          {{ message }}
+                    </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
