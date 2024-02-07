@@ -1,5 +1,5 @@
 # CeeVee-Online - An E-Commerce Website for Used Electronics
-> This project involves the development of an e-commerce website similar to jijji.ug, focusing on facilitating the buying and selling of used electronics. As students of the ALX Software Engineering Program, we aim to fulfill the curriculum requirements through the creation of a comprehensive and functional platform that allows users to open accounts, purchase products, communicate with sellers, and perform secure transactions.
+> This project involves the development of an e-commerce website similar to jiji.ug, but specifically focus on facilitating the buying and selling of used electronics. As students of the ALX Software Engineering Program, we aim to fulfill the curriculum requirements through the creation of a comprehensive and functional platform that allows users to open accounts, purchase products, communicate with sellers, and perform secure transactions. The Admin manage everything else from the backend
 
 ## Features
 - **User Accounts**: Users can open accounts as buyers or sellers. Each user has a personalized account page to manage their activities.
