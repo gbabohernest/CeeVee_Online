@@ -33,9 +33,20 @@ def sign_up():
     return render_template('signup.html', title='SignUp', form=form)
 
 
-@app.route("/login")
+@app.route("/login", methods=('GET', 'POST'))
 def login():
     form = SignInForm()
+
+    # checks if all fields are validated when submitted
+    if form.validate_on_submit():
+        """Temp data to stimulate login success, change later with actual data from db
+         """
+        if form.email.data == 'admin@fake.com' and form.password.data == '123456':
+            flash(f'Logged In successfully!!', 'success')
+            return redirect(url_for('home'))
+
+        else:
+            flash(f'Login failed, check credentials', 'danger')
     return render_template('login.html', title='SignIn', form=form)
 
 
