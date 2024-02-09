@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+   <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+
+  <link href="/static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap" rel="stylesheet"> <!-- Include the Ropa Sans font -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons CSS (Optional, if you want to use Bootstrap Icons) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="/static/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/static/assets/css/style.css" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% if title %}
@@ -34,10 +64,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='sass/dist/css/main.min.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='sass/dist/css/main.min.css') }}"/>
   </head>
   <body>
     <!-- header starts -->
@@ -56,7 +83,7 @@
 
             <ul class="navbar__left__links">
               <li><a href="{{ url_for('home') }}">Home</a></li>
-              <li><a href="/categories.html">Categories</a></li>
+              <li><a href="{{ url_for('categories') }}">Categories</a></li>
             </ul>
           </div>
 
@@ -76,7 +103,7 @@
               </li>
               <!-- <button class="sell">sell</button> -->
               <li>
-                <a href="#" class="sell">sell</a>
+                <a href="{{ url_for('sign_up') }}" class="sell">sell</a>
               </li>
             </ul>
           </div>
