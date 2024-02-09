@@ -40,5 +40,5 @@ This project is being developed as part of the ALX Software Engineering Program.
 ## Authors
 [Ousmane Sangary](https://www.github.com/sangaryousmane)
 
-[Ernest Gbaboh](https://github.com/gbabohernest)
+[Ernest Push Gbaboh](https://github.com/gbabohernest)
 
