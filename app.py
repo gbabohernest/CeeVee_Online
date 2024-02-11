@@ -15,7 +15,26 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template('categories.html', title='Categories')
+    return render_template('listings.html', title='Categories')
+
+
+@app.route("/laptops")
+def laptops():
+    return render_template('laptops.html', title='Categories')
+
+
+@app.route("/listings")
+def listings():
+    return render_template('listings.html', title='Listings')
+
+
+@app.route("/listing")
+def listing():
+    return render_template('listing.html', title='Listing')
+
+@app.route("/payment")
+def payment():
+    return render_template('payment.html', title='Payment')
 
 
 @app.route("/signup", methods=('GET', 'POST'))
@@ -51,4 +70,4 @@ def login():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5002)
