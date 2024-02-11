@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap" rel="stylesheet">
+    <!-- Include the Ropa Sans font -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons CSS (Optional, if you want to use Bootstrap Icons) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="../static/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../static/assets/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+        <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+            <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTy66GYnXr-OIM3Gg9hfF6jYgvrIVMKUm7PZh4P3Ytml1MPgWvm1KTHXPqoDVkfLvdn-kmojEifc9fi9gAodu06NZ_IzQ=s2560"
+                 alt="">
+            <span class="d-none d-lg-block">CeeVee</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+
+    <nav class="header-nav ms-auto">
+
+
+        <ul class="d-flex align-items-center">
+
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge bg-primary badge-number">4</span>
+                </a><!-- End Notification Icon -->
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                    <li class="dropdown-header">
+                        You have 4 new notifications
+                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-exclamation-circle text-warning"></i>
+                        <div>
+                            <h4>Lorem Ipsum</h4>
+                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>30 min. ago</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-x-circle text-danger"></i>
+                        <div>
+                            <h4>Atque rerum nesciunt</h4>
+                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>1 hr. ago</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-check-circle text-success"></i>
+                        <div>
+                            <h4>Sit rerum fuga</h4>
+                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>2 hrs. ago</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-info-circle text-primary"></i>
+                        <div>
+                            <h4>Dicta reprehenderit</h4>
+                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>4 hrs. ago</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li class="dropdown-footer">
+                        <a href="#">Show all notifications</a>
+                    </li>
+
+                </ul><!-- End Notification Dropdown Items -->
+
+            </li><!-- End Notification Nav -->
+
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-heart"></i>
+                    <span class="badge bg-success badge-number">3</span>
+                </a><!-- End Messages Icon -->
+
+            </li><!-- End Messages Nav -->
+
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-chat-left-text"></i>
+                    <span class="badge bg-success badge-number">3</span>
+                </a><!-- End Messages Icon -->
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                    <li class="dropdown-header">
+                        You have 3 new messages
+                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="message-item">
+                        <a href="#">
+                            <img src="../static/assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                            <div>
+                                <h4>Maria Hudson</h4>
+                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                                <p>4 hrs. ago</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="message-item">
+                        <a href="#">
+                            <img src="../static/assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                            <div>
+                                <h4>Anna Nelson</h4>
+                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                                <p>6 hrs. ago</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="message-item">
+                        <a href="#">
+                            <img src="../static/assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                            <div>
+                                <h4>David Muldon</h4>
+                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                                <p>8 hrs. ago</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="dropdown-footer">
+                        <a href="#">Show all messages</a>
+                    </li>
+
+                </ul><!-- End Messages Dropdown Items -->
+
+            </li><!-- End Messages Nav -->
+
+
+            <li class="nav-item dropdown pe-3">
+
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle"></i>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">strange</span>
+                </a><!-- End Profile Iamge Icon -->
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                    <li class="dropdown-header">
+                        <h6>strange</h6>
+                        <span>Admin</span>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                            <i class="bi bi-gear"></i>
+                            <span>settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="listings.html">
+                            <i class="bi bi-view-list"></i>
+                            <span>Listings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="pending.html">
+                            <i class="bi bi-send-check"></i>
+                            <span>Pending</span>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="payment.html">
+                            <i class="bi bi-truck-flatbed"></i>
+                            <span>Payment/delivery</span>
+                        </a>
+                    </li>
+
+                </ul><!-- End Profile Dropdown Items -->
+            </li><!-- End Profile Nav -->
+
+
+        </ul>
+    </nav><!-- End Icons Navigation -->
+
+</header><!-- End Header -->
+
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <div class="col-12 d-flex flex-column align-items-center justify-content-center">
+
+            <i class="bi bi-person-square"></i>
+            <h2>30000</h2>
+            <span>Strange</span>
+
+        </div>
+
+
+        <!-- start categories nav -->
+        <li class="nav-item">
+            <div class="d-flex align-items-center">
+                <a class="nav-link collapsed" href="index.html">
+                    <i class="bi bi-bar-chart"></i><span>Category</span>
+                </a>
+                <i data-bs-target="#cat-nav" data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
+            </div>
+            <ul id="cat-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                <!-- start categories nav -->
+
+
+                <!-- start Laptop nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="laptop.html">
+                            <i class="bi bi-bar-chart"></i><span>Laptop</span>
+                        </a>
+                        <i data-bs-target="#laptop-nav" data-bs-toggle="collapse"
+                           class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="laptop-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Laptop Parts</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Screen</a></li>
+                                <li><a class="dropdown-item" href="#">Motherboard</a></li>
+                                <li><a class="dropdown-item" href="#">Keyboard</a></li>
+                                <li><a class="dropdown-item" href="#">Ram</a></li>
+                                <li><a class="dropdown-item" href="#">HDD</a></li>
+                                <li><a class="dropdown-item" href="#">SSD</a></li>
+                                <li><a class="dropdown-item" href="#">Battery</a></li>
+                                <li><a class="dropdown-item" href="#">cooling system</a></li>
+                                <li><a class="dropdown-item" href="#">Webcam</a></li>
+                                <li><a class="dropdown-item" href="#">Hinge</a></li>
+                                <li><a class="dropdown-item" href="#">Trackpad</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Laptop Accessories</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Charger</a></li>
+                                <li><a class="dropdown-item" href="#">Cover/cases</a></li>
+                                <li><a class="dropdown-item" href="#">Cooling pad</a></li>
+                                <li><a class="dropdown-item" href="#">HDMI cable</a></li>
+                                <li><a class="dropdown-item" href="#">Displayport Cable</a></li>
+                                <li><a class="dropdown-item" href="#">Dongle</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Laptop nav -->
+
+
+                <!-- start desktop nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="index.html">
+                            <i class="bi bi-bar-chart"></i><span>Desktop</span>
+                        </a>
+                        <i data-bs-target="#desktop-nav" data-bs-toggle="collapse"
+                           class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="desktop-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Desktop Parts</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Graphics Card</a></li>
+                                <li><a class="dropdown-item" href="#">Motherboard</a></li>
+                                <li><a class="dropdown-item" href="#">Processor</a></li>
+                                <li><a class="dropdown-item" href="#">Ram</a></li>
+                                <li><a class="dropdown-item" href="#">Hard drives</a></li>
+                                <li><a class="dropdown-item" href="#">Powerpack</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Desktop Accessories</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Monitor</a></li>
+                                <li><a class="dropdown-item" href="#">Keyboard</a></li>
+                                <li><a class="dropdown-item" href="#">Mouse</a></li>
+                                <li><a class="dropdown-item" href="#">Deskpad</a></li>
+                                <li><a class="dropdown-item" href="#">Speakers</a></li>
+                                <li><a class="dropdown-item" href="#">Power Cable</a></li>
+                                <li><a class="dropdown-item" href="#">Displayport Cable</a></li>
+                                <li><a class="dropdown-item" href="#">UPS</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End desktop nav -->
+
+
+                <!-- start Phone nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="index.html">
+                            <i class="bi bi-bar-chart"></i><span>Phones</span>
+                        </a>
+                        <i data-bs-target="#phone-nav" data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="phone-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Phone Accessories</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Case</a></li>
+                                <li><a class="dropdown-item" href="#">Screen Protector</a></li>
+                                <li><a class="dropdown-item" href="#">Lense Cover</a></li>
+                                <li><a class="dropdown-item" href="#">Charger</a></li>
+                                <li><a class="dropdown-item" href="#">Cable</a></li>
+                                <li><a class="dropdown-item" href="#">Dock</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Phone Parts</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Screen</a></li>
+                                <li><a class="dropdown-item" href="#">Motherboard</a></li>
+                                <li><a class="dropdown-item" href="#">Battery</a></li>
+                                <li><a class="dropdown-item" href="#">Body</a></li>
+                                <li><a class="dropdown-item" href="#">Lense</a></li>
+                                <li><a class="dropdown-item" href="#">Charging port</a></li>
+                                <li><a class="dropdown-item" href="#">Mic</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End phone nav -->
+
+
+                <!-- start Tablet nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="index.html">
+                            <i class="bi bi-bar-chart"></i><span>Tablet</span>
+                        </a>
+                        <i data-bs-target="#tablet-nav" data-bs-toggle="collapse"
+                           class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="tablet-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Tablet Accessories</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Case</a></li>
+                                <li><a class="dropdown-item" href="#">Keyboard Case</a></li>
+                                <li><a class="dropdown-item" href="#">Screen Protector</a></li>
+                                <li><a class="dropdown-item" href="#">Lense Cover</a></li>
+                                <li><a class="dropdown-item" href="#">Bluetooth Keyboard</a></li>
+                                <li><a class="dropdown-item" href="#">Stand</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Tablet Parts</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Screen</a></li>
+                                <li><a class="dropdown-item" href="#">Motherboard</a></li>
+                                <li><a class="dropdown-item" href="#">Battery</a></li>
+                                <li><a class="dropdown-item" href="#">Body</a></li>
+                                <li><a class="dropdown-item" href="#">Lense</a></li>
+                                <li><a class="dropdown-item" href="#">Charging port</a></li>
+                                <li><a class="dropdown-item" href="#">Mic</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Tablet nav -->
+
+
+                <!-- start Console nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="index.html">
+                            <i class="bi bi-bar-chart"></i><span>Console</span>
+                        </a>
+                        <i data-bs-target="#console-nav" data-bs-toggle="collapse"
+                           class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="console-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Console Accessories</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Case</a></li>
+                                <li><a class="dropdown-item" href="#">Controller</a></li>
+                                <li><a class="dropdown-item" href="#">Games</a></li>
+                                <li><a class="dropdown-item" href="#">Dock</a></li>
+                                <li><a class="dropdown-item" href="#">Sticker</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Console Parts</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Disk drive</a></li>
+                                <li><a class="dropdown-item" href="#">Drive</a></li>
+                                <li><a class="dropdown-item" href="#">Power supply</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                                <li><a class="dropdown-item" href="#">Lense</a></li>
+                                <li><a class="dropdown-item" href="#">Charging port</a></li>
+                                <li><a class="dropdown-item" href="#">Mic</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Console nav -->
+
+
+                <!-- start Appliance nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="index.html">
+                            <i class="bi bi-bar-chart"></i><span>Appliance</span>
+                        </a>
+                        <i data-bs-target="#appliance-nav" data-bs-toggle="collapse"
+                           class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="appliance-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Home Appliance</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">TV</a></li>
+                                <li><a class="dropdown-item" href="#">Sound system</a></li>
+                                <li><a class="dropdown-item" href="#">Fan</a></li>
+                                <li><a class="dropdown-item" href="#">Air conditioner</a></li>
+                                <li><a class="dropdown-item" href="#">Washing machine</a></li>
+                                <li><a class="dropdown-item" href="#">Router</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Kitchen Appliance</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Blender</a></li>
+                                <li><a class="dropdown-item" href="#">Microwave Oven</a></li>
+                                <li><a class="dropdown-item" href="#">Fridge/Freezer</a></li>
+                                <li><a class="dropdown-item" href="#">Toaster</a></li>
+                                <li><a class="dropdown-item" href="#">Mixer</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Appliance nav -->
+
+
+                <!-- start Professional nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="index.html">
+                            <i class="bi bi-bar-chart"></i><span>Professional</span>
+                        </a>
+                        <i data-bs-target="#pro-nav" data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="pro-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Server/Networking</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">POE/switch</a></li>
+                                <li><a class="dropdown-item" href="#">Routers</a></li>
+                                <li><a class="dropdown-item" href="#">Video switch</a></li>
+                                <li><a class="dropdown-item" href="#">Nas</a></li>
+                                <li><a class="dropdown-item" href="#">LAN cable</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Sound</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Mic</a></li>
+                                <li><a class="dropdown-item" href="#">Mic stand</a></li>
+                                <li><a class="dropdown-item" href="#">sound mixer</a></li>
+                                <li><a class="dropdown-item" href="#">Pop filters</a></li>
+                                <li><a class="dropdown-item" href="#">Insulations</a></li>
+                                <li><a class="dropdown-item" href="#">Mic stand</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Video/pictures</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">DSLR</a></li>
+                                <li><a class="dropdown-item" href="#">Video Recorder</a></li>
+                                <li><a class="dropdown-item" href="#">Diffuser</a></li>
+                                <li><a class="dropdown-item" href="#">Stage light/flash</a></li>
+                                <li><a class="dropdown-item" href="#">Background</a></li>
+                                <li><a class="dropdown-item" href="#">Camera stand</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Professional nav -->
+
+
+                <!-- start Car nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="index.html">
+                            <i class="bi bi-bar-chart"></i><span>Cars</span>
+                        </a>
+                        <i data-bs-target="#car-nav" data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="car-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-circle"></i><span>Sedans</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-circle"></i><span>Convertible</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-circle"></i><span>Midsize-SUV</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-circle"></i><span>Fullsize-SUV</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-circle"></i><span>Trucks</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-circle"></i><span>Vans</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-circle"></i><span>Trailers</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End car nav -->
+
+
+                <!-- start carparts nav -->
+                <li class="nav-item">
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link collapsed" href="{{ url_for('home') }}">
+                            <i class="bi bi-bar-chart"></i><span>Car parts/Accessories</span>
+                        </a>
+                        <i data-bs-target="#carpart-nav" data-bs-toggle="collapse"
+                           class="bi bi-chevron-down ms-auto"></i>
+                    </div>
+                    <ul id="carpart-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Parts</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Transmission</a></li>
+                                <li><a class="dropdown-item" href="#">Engine</a></li>
+                                <li><a class="dropdown-item" href="#">AC parts</a></li>
+                                <li><a class="dropdown-item" href="#">Radiator</a></li>
+                                <li><a class="dropdown-item" href="#">Tires</a></li>
+                                <li><a class="dropdown-item" href="#">Battery</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-circle"></i><span>Accessories</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                                <li><a class="dropdown-item" href="#">Dashboard cover</a></li>
+                                <li><a class="dropdown-item" href="#">Steering Cover</a></li>
+                                <li><a class="dropdown-item" href="#">console</a></li>
+                                <li><a class="dropdown-item" href="#">Sit cover</a></li>
+                                <li><a class="dropdown-item" href="#">Dashcam</a></li>
+                                <li><a class="dropdown-item" href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Appliance nav -->
+
+
+            </ul>
+        </li>
+        <!-- End categories nav -->
+
+
+        <!-- links started -->
+        <li class="nav-heading">links</li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url_for('sign_up') }}">
+                <i class="bi bi-card-list"></i>
+                <span>Register</span>
+            </a>
+        </li><!-- End link -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url_for('login') }}">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Login</span>
+            </a>
+        </li><!-- End Login Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-contact.html">
+                <i class="bi bi-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </li><!-- End Contact Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>F.A.Q</span>
+            </a>
+        </li><!-- End F.A.Q Page Nav -->
+
+
+    </ul>
+
+</aside>
+
+<!-- End Sidebar-->
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Pending</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Pending</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+
+        </div>
+    </section>
+
+
+    <section class="section dashboard">
+        <div class="row">
+
+
+            <!-- ======= pending ======= -->
+            <div class="container pending-row">
+                <div class="row all-pending">
+                    <div class="col-xxl-2 col-md-2 col-lg-2 col-sm-2">
+                        <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYRrgvf9gpzKh5gPNaLSg0PvkWLnDSnKoIZ9CQ1G-BnjHGKX8UiYPGrMA8J_lvHGa2ke-3tOs_B5iH1SU-jsYKjBObWF4w=s1600"
+                             class="card-img-top image-overlay limit-image pending-mask img-fluid"
+                             style="aspect-ratio: 4/3; border-radius: 2px;">
+                        <span class="badge bg-secondary position-absolute top-0 end-0 ">confirming</span>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 spec-box">
+                        <div class="row">
+                            <div class="d-flex align-items-center dis-row">
+                                <i class="bi bi-coin"></i>
+                                <h3 class="mb-0">300000</h3>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-laptop"></i>
+                                <h5 class="mb-0">Macbook pro 2011</h5>
+                            </div>
+                        </div>
+
+                        <div class="spec-row">
+                            <div class="d-flex flex-wrap align-items-center">
+                                <div>
+                                    <i class="bi bi-device-ssd"></i>
+                                    <h7 class="pe-2">128gb.ssd</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-memory"></i>
+                                    <h7 class="pe-2">8gb.ddr3</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-cpu"></i>
+                                    <h7 class="pe-2">i7</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-cpu-fill"></i>
+                                    <h7 class="pe-2">3350M</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-tv"></i>
+                                    <h7 class="pe-2">1280x800</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-display"></i>
+                                    <h7 class="pe-2">LCD</h7>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-7 col-sm-3 col-6">
+                        <!-- Button trigger modal -->
+                        <div class="row">
+                            <div class="col-12 person-dis">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+                            <div class="col-12 person-dis">
+                                <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+                                        data-target="#uploadModal">
+                                    Upload proof
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog"
+                         aria-labelledby="uploadModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="uploadModalLabel">Upload File</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>upload a clear picture of of your transfer receipt to confirm your payment</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="file" class="form-control-file" id="fileInput">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Upload</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- ======= end pending ======= -->
+
+
+            <!-- ======= revised ======= -->
+            <div class="container pending-row">
+                <div class="row all-pending">
+                    <div class="col-xxl-2 col-md-2 col-lg-2 col-sm-2">
+                        <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYRrgvf9gpzKh5gPNaLSg0PvkWLnDSnKoIZ9CQ1G-BnjHGKX8UiYPGrMA8J_lvHGa2ke-3tOs_B5iH1SU-jsYKjBObWF4w=s1600"
+                             class="card-img-top image-overlay limit-image pending-mask img-fluid"
+                             style="aspect-ratio: 4/3; border-radius: 2px;">
+                        <span class="badge bg-secondary position-absolute top-0 end-0 ">Revised</span>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="d-flex align-items-center dis-row">
+                                <i class="bi bi-coin"></i>
+                                <h3 class="mb-0">300000</h3>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-laptop"></i>
+                                <h5 class="mb-0">Macbook pro 2011</h5>
+                            </div>
+                        </div>
+
+                        <div class="spec-row">
+                            <div class="d-flex flex-wrap align-items-center">
+                                <div>
+                                    <i class="bi bi-device-ssd"></i>
+                                    <h7 class="pe-2">128gb.ssd</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-memory"></i>
+                                    <h7 class="pe-2">8gb.ddr3</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-cpu"></i>
+                                    <h7 class="pe-2">i7</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-cpu-fill"></i>
+                                    <h7 class="pe-2">3350M</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-tv"></i>
+                                    <h7 class="pe-2">1280x800</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-display"></i>
+                                    <h7 class="pe-2">LCD</h7>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ======= end revised ======= -->
+
+
+            <!-- ======= approved ======= -->
+            <div class="container pending-row">
+                <div class="row all-pending">
+                    <div class="col-xxl-2 col-md-2 col-lg-2 col-sm-2">
+                        <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYRrgvf9gpzKh5gPNaLSg0PvkWLnDSnKoIZ9CQ1G-BnjHGKX8UiYPGrMA8J_lvHGa2ke-3tOs_B5iH1SU-jsYKjBObWF4w=s1600"
+                             class="card-img-top image-overlay limit-image pending-mask img-fluid"
+                             style="aspect-ratio: 4/3; border-radius: 2px;">
+                        <span class="badge bg-secondary position-absolute top-0 end-0 ">Approved</span>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="d-flex align-items-center dis-row">
+                                <i class="bi bi-coin"></i>
+                                <h3 class="mb-0">300000</h3>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-laptop"></i>
+                                <h5 class="mb-0">Macbook pro 2011</h5>
+                            </div>
+                        </div>
+
+                        <div class="spec-row">
+                            <div class="d-flex flex-wrap align-items-center">
+                                <div>
+                                    <i class="bi bi-device-ssd"></i>
+                                    <h7 class="pe-2">128gb.ssd</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-memory"></i>
+                                    <h7 class="pe-2">8gb.ddr3</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-cpu"></i>
+                                    <h7 class="pe-2">i7</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-cpu-fill"></i>
+                                    <h7 class="pe-2">3350M</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-tv"></i>
+                                    <h7 class="pe-2">1280x800</h7>
+                                </div>
+                                <div>
+                                    <i class="bi bi-display"></i>
+                                    <h7 class="pe-2">LCD</h7>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ======= end approved ======= -->
+
+
+        </div>
+    </section>
+
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+    <div class="copyright">
+        &copy; Copyright <strong><span>CeeVee</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+        Designed by <a href="#">strange</a>
+    </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Bootstrap JS Bundle (Popper included) -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- Bootstrap Slider JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"></script>
+<!-- Template Main JS File -->
+<script src="../static/assets/js/main.js"></script>
+</body>
+</html>
