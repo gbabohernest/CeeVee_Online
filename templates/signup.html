@@ -1,93 +1,117 @@
 {% extends 'base.html' %} {% block content %}
 
-<section class="container">
-  <form action="" method="POST" class="container__form">
-    {{ form.hidden_tag() }}
+    <section class="container">
+        <form action="" method="POST" class="container__form">
+            {{ form.hidden_tag() }}
 
-    <h2>Sign up</h2>
-    <br />
-    <div class="form-group">
-      {{ form.first_name.label(class="label") }}
-        <!-- check for errors in the form field      -->
-        {% if form.first_name.errors %}
-             {{ form.first_name(class="input is-invalid") }}
-              <!--  loop through the errors & display error message-->
-              <div class="invalid-feedback">
-                {% for error in form.first_name.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-              </div>
-        {% else %}
-            {{ form.first_name(class="input") }}
-        {% endif %}
-    </div>
+            <h2>Sign up</h2>
+            <br/>
+            <div class="form-group">
+                {{ form.first_name.label(class="label") }}
+                <!-- check for errors in the form field      -->
+                {% if form.first_name.errors %}
+                    {{ form.first_name(class="input is-invalid") }}
+                    <!--  loop through the errors & display error message-->
+                    <div class="invalid-feedback">
+                        {% for error in form.first_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.first_name(class="input") }}
+                {% endif %}
+            </div>
 
-    <div class="form-group">
-      {{ form.last_name.label(class="label") }}
-      <!-- check for errors in the form field      -->
-        {% if form.last_name.errors %}
-             {{ form.last_name(class="input is-invalid") }}
-              <!--  loop through the errors & display error message-->
-              <div class="invalid-feedback">
-                {% for error in form.last_name.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-              </div>
-        {% else %}
-            {{ form.last_name(class="input") }}
-        {% endif %}
-    </div>
+            <div class="form-group">
+                {{ form.last_name.label(class="label") }}
+                <!-- check for errors in the form field      -->
+                {% if form.last_name.errors %}
+                    {{ form.last_name(class="input is-invalid") }}
+                    <!--  loop through the errors & display error message-->
+                    <div class="invalid-feedback">
+                        {% for error in form.last_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.last_name(class="input") }}
+                {% endif %}
+            </div>
 
-    <div class="form-group">
-      {{ form.email.label(class="label") }}
-     <!-- check for errors in the form field      -->
-        {% if form.email.errors %}
-             {{ form.email(class="input is-invalid") }}
-              <!--  loop through the errors & display error message-->
-              <div class="invalid-feedback">
-                {% for error in form.email.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-              </div>
-        {% else %}
-            {{ form.email(class="input") }}
-        {% endif %}
-    </div>
+            <div class="form-group">
+                {{ form.email.label(class="label") }}
+                <!-- check for errors in the form field      -->
+                {% if form.email.errors %}
+                    {{ form.email(class="input is-invalid") }}
+                    <!--  loop through the errors & display error message-->
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="input") }}
+                {% endif %}
+            </div>
 
-    <div class="form-group">
-      {{ form.password.label(class="label") }}
-      <!-- check for errors in the form field      -->
-        {% if form.password.errors %}
-             {{ form.password(class="input is-invalid") }}
-              <!--  loop through the errors & display error message-->
-              <div class="invalid-feedback">
-                {% for error in form.password.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-              </div>
-        {% else %}
-            {{ form.password(class="input") }}
-        {% endif %}
-    </div>
+            <div class="form-group">
+                {{ form.password.label(class="label") }}
+                <!-- check for errors in the form field      -->
+                {% if form.password.errors %}
+                    {{ form.password(class="input is-invalid") }}
+                    <!--  loop through the errors & display error message-->
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="input") }}
+                {% endif %}
+            </div>
 
-    <div class="form-group">
-      {{ form.confirm_password.label(class="label") }}
-      <!-- check for errors in the form field      -->
-        {% if form.confirm_password.errors %}
-             {{ form.confirm_password(class="input is-invalid") }}
-              <!--  loop through the errors & display error message-->
-              <div class="invalid-feedback">
-                {% for error in form.confirm_password.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-              </div>
-        {% else %}
-            {{ form.confirm_password(class="input") }}
-        {% endif %}
-    </div>
+            <div class="form-group">
+                {{ form.confirm_password.label(class="label") }}
+                <!-- check for errors in the form field      -->
+                {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class="input is-invalid") }}
+                    <!--  loop through the errors & display error message-->
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.confirm_password(class="input") }}
+                {% endif %}
+            </div>
 
-    <div class="submit-btn-wrapper">{{ form.sign_up(class="submit_btn") }}</div>
-    <p>Already have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
-  </form>
-</section>
+            <div class="submit-btn-wrapper">{{ form.sign_up(class="submit_btn") }}</div>
+            <p>Already have an account? <a href="{{ url_for('users.login') }}">Sign in</a></p>
+        </form>
+    </section>
+    <footer>
+        {% block footer %}
+            <ul class='permalinks'>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About CeeVee</a></li>
+                <li><a href="#term_and_condition">Terms and Condition</a></li>
+                <li><a href="#billing_policy">Billing Policy</a></li>
+                <li><a href="#support">support@ceevee.com</a></li>
+                <li><a href="#our_blog">Our Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="footer__socials">
+                <a href="#" target='_blank'><i class="fab fa-twitter"></i></a>
+                <a href="#" target='_blank'><i class="fab fa-github"></i></a>
+                <a href="#" target='_blank'><i class="fab fa-linkedin"></i></a>
+                <a href="#" target='_blank'><i class="fab fa-instagram"></i></a> <!-- Added Instagram icon -->
+            </div>
+
+            <div class="footer__copyright">
+                <small>&copy; CeeVee. All rights reserved </small>
+            </div>
+        {% endblock %}
+    </footer>
 {% endblock %}

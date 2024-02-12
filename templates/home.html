@@ -35,6 +35,7 @@
 
     <!-- Template Main CSS File -->
     <link href="../static/assets/css/style.css" rel="stylesheet">
+    <link href="../static/assets/css/footer.css" rel="stylesheet">
 
 
 </head>
@@ -45,7 +46,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+        <a href="{{ url_for('users.home') }}" class="logo d-flex align-items-center">
             <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTy66GYnXr-OIM3Gg9hfF6jYgvrIVMKUm7PZh4P3Ytml1MPgWvm1KTHXPqoDVkfLvdn-kmojEifc9fi9gAodu06NZ_IzQ=s2560"
                  alt="">
             <span class="d-none d-lg-block">CeeVee</span>
@@ -250,7 +251,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="{{ url_for('listings') }}">
+                        <a class="dropdown-item d-flex align-items-center" href="{{ url_for('users.listings') }}">
                             <i class="bi bi-view-list"></i>
                             <span>Listings</span>
                         </a>
@@ -292,7 +293,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="{{ url_for('home') }}">
+            <a class="nav-link " href="{{ url_for('users.home') }}">
                 <i class="bi bi-grid"></i>
                 <span>Home</span>
             </a>
@@ -303,7 +304,7 @@
         <!-- start categories nav -->
         <li class="nav-item">
             <div class="d-flex align-items-center">
-                <a class="nav-link collapsed" href="{{ url_for('categories') }}">
+                <a class="nav-link collapsed" href="{{ url_for('users.categories') }}">
                     <i class="bi bi-bar-chart"></i><span>Category</span>
                 </a>
                 <i data-bs-target="#cat-nav" data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
@@ -315,7 +316,7 @@
                 <!-- start Laptop nav -->
                 <li class="nav-item">
                     <div class="d-flex align-items-center">
-                        <a class="nav-link collapsed" href="{{ url_for('laptops') }}">
+                        <a class="nav-link collapsed" href="{{ url_for('users.laptops') }}">
                             <i class="bi bi-bar-chart"></i><span>Laptop</span>
                         </a>
                         <i data-bs-target="#laptop-nav" data-bs-toggle="collapse"
@@ -755,14 +756,14 @@
         <li class="nav-heading">links</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url_for('sign_up') }}">
+            <a class="nav-link collapsed" href="{{ url_for('users.sign_up') }}">
                 <i class="bi bi-card-list"></i>
                 <span>Register</span>
             </a>
         </li><!-- End link -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url_for('login') }}">
+            <a class="nav-link collapsed" href="{{ url_for('users.login') }}">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Login</span>
             </a>
@@ -796,7 +797,7 @@
         <h1>Dashboard</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('users.home') }}">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
         </nav>
@@ -1370,14 +1371,30 @@
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-    <div class="copyright">
-        &copy; Copyright <strong><span>CeeVee</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-        Designed by <a href="#">strange</a>
-    </div>
-</footer><!-- End Footer -->
+<footer>
+        {% block footer %}
+            <ul class='permalinks'>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About CeeVee</a></li>
+                <li><a href="#term_and_condition">Terms and Condition</a></li>
+                <li><a href="#billing_policy">Billing Policy</a></li>
+                <li><a href="#support">support@ceevee.com</a></li>
+                <li><a href="#our_blog">Our Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="footer__socials">
+                <a href="#" target='_blank'><i class="fab fa-twitter"></i></a>
+                <a href="#" target='_blank'><i class="fab fa-github"></i></a>
+                <a href="#" target='_blank'><i class="fab fa-linkedin"></i></a>
+                <a href="#" target='_blank'><i class="fab fa-instagram"></i></a> <!-- Added Instagram icon -->
+            </div>
+
+            <div class="footer__copyright">
+                <small>&copy; CeeVee. All rights reserved </small>
+            </div>
+        {% endblock %}
+    </footer>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
@@ -1400,6 +1417,6 @@
 <!-- Template Main JS File -->
 <script src="../static/assets/js/main.js"></script>
 
-</body>
 
+</body>
 </html>
