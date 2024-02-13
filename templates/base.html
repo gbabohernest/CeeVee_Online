@@ -10,18 +10,36 @@
     {% endif %}
 
     <!-- bootstrap link -->
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    /> -->
+    />
+    <!-- Bootstrap Icons CSS (Optional, if you want to use Bootstrap Icons) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Include the Ropa Sans font -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet"
     />
 
@@ -41,49 +59,50 @@
   </head>
   <body>
     <!-- header starts -->
-    <header class="header">
-      <div class="header__nav-wrapper">
+    <header class="header fixed-top d-flex align-items-center" id="header">
+      {% include 'nav.html' %}
+      <!-- <div class="header__nav-wrapper">
         <nav class="navbar">
-          <div class="navbar__left">
-            <a href="{{ url_for('home') }}" class="navbar__left__logo"
-              ><h1>
-                <span class="first_letter_word">C</span>ee<span
-                  class="fourth_letter"
-                  >v</span
+            <div class="navbar__left">
+                <a href="{{ url_for('home') }}" class="navbar__left__logo"
+                ><h1>
+                    <span class="first_letter_word">C</span>ee<span
+                        class="fourth_letter"
+                >v</span
                 >ee
-              </h1></a
-            >
+                </h1></a
+                >
 
-            <ul class="navbar__left__links">
-              <li><a href="{{ url_for('home') }}">Home</a></li>
-              <li><a href="/categories.html">Categories</a></li>
-            </ul>
-          </div>
+                <ul class="navbar__left__links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                </ul>
+            </div>
 
-          <div class="navbar__right">
-            <ul>
-              <li>
-                <a href="{{ url_for('login') }}">
-                  Sign in
-                  <i class="fa fa-sign-in" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="{{ url_for('sign_up') }}">
-                  Sign up
-                  <i class="fa fa-user-plus" aria-hidden="true"></i>
-                </a>
-              </li>
-              <!-- <button class="sell">sell</button> -->
-              <li>
-                <a href="#" class="sell">sell</a>
-              </li>
-            </ul>
-          </div>
+            <div class="navbar__right">
+                <ul>
+                    <li>
+                        <a href="{{ url_for('login') }}">
+                            Sign in
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('sign_up') }}">
+                            Sign up
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    &lt;!&ndash; <button class="sell">sell</button> &ndash;&gt;
+                    <li>
+                        <a href="#" class="sell">sell</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
-      </div>
-
-      <div class="header__form">
+    </div>
+-->
+      <!-- <div class="header__form">
         <input
           type="text"
           autocomplete="off"
@@ -93,31 +112,35 @@
         />
 
         <i class="fa fa-search" aria-hidden="true"></i>
-      </div>
+      </div> -->
     </header>
     <!-- header ends -->
 
     <!-- display flash message logic -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          <!-- if there is message, loop through, category is the msg category -->
-            {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">
-                          <!-- display message-->
-                          {{ message }}
-                    </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <!-- if there is message, loop through, category is the msg category -->
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+      <!-- display message-->
+      {{ message }}
+    </div>
+    {% endfor %} {% endif %} {% endwith %}
     <!-- flash message logic ends -->
 
     {% block content %} {% endblock %}
 
-    <!-- bootstrap script -->
-    <!-- <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script> -->
+    <!-- Vendor JS Files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script> -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS Bundle (Popper included) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap Slider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"></script>
   </body>
 </html>
