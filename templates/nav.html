@@ -49,8 +49,28 @@
       </li>
     </ul>
 
-    <i class="bi bi-list hide_for_desktop" id="hamburger-btn">
+    <div class="hide_for_desktop" id="hamburger">
+      <!-- <i class="bi bi-list icon"> -->
       <!-- toggle hamburger menu         -->
-    </i>
+      <!-- </i> -->
+      <i class="fa-solid fa-bars icon-btn"></i>
+      <i class="fa-solid fa-xmark icon-btn close"></i>
+    </div>
   </div>
 </nav>
+<div class="mobile-nav-links close" id="mobile_links">
+  <ul>
+    <li>
+      <a href="{{ url_for('sign_up') }}">
+        Sign Up
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="{{ url_for('login') }}">
+        Login
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
