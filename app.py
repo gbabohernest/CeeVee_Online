@@ -27,7 +27,7 @@ def sign_up():
 
     if form.validate_on_submit():
         # checks if all fields are validated when submitted
-        flash(f'Account was created successfully', 'success')
+        flash(f'Account Created, Success!!', 'success')
         return redirect(url_for('home'))
 
     return render_template('signup.html', title='SignUp', form=form)
