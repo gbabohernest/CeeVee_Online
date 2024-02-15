@@ -1,0 +1,11 @@
+{% extends "basee.html"%}
+{% block content %}
+
+{% for cat in categories_ %}
+    {% if cat.name != "" %}
+    <p>{{cat.name}}</p>
+    <p>{{cat.image_path}}</p>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
