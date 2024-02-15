@@ -8,4 +8,4 @@ if __name__ == "__main__":
     # db.session.commit()
     app.app_context().push()
     db.session.commit()
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5001)
