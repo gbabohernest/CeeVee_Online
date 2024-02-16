@@ -21,3 +21,11 @@
     color: var(--logo-color);
   }
 }
+
+%sidebar-nav-link-default {
+  color: var(--logo-color);
+  background: #dae3e5;
+  opacity: 0.6;
+  // background: #f6f9ff;
+  border-radius: f.rem(5);
+}
