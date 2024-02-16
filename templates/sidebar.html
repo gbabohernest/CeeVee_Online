@@ -1,0 +1,132 @@
+<aside class="sidebar collapse-small-device">
+  <ul class="sidebar__nav" id="sidebar__nav">
+    <li class="sidebar__nav__list-item">
+      <a href="{{ url_for('home') }}" class="nav-link-default">
+        <i class="bi bi-grid"></i>
+        <span>Home</span>
+      </a>
+    </li>
+
+    <!-- categories -->
+    <li class="sidebar__nav__list-item">
+      <div class="d-flex align-items-center">
+        <div class="nav-link">
+          <i class="bi bi-bar-chart"></i>
+          <span>Categories</span>
+        </div>
+        <i
+          class="bi bi-chevron-down ms-auto icon-btn"
+          id="categories-dropdown-main-control"
+        ></i>
+      </div>
+
+      <div class="categories" id="categories-wrapper">
+        <!-- categories wrapper -->
+
+        <ul id="categories-UL" class="categories__navigation-list">
+          <!--  categories navigation list     -->
+
+          <!-- laptop category -->
+          <li class="nav-item">
+            <!-- make a DB call, fetch all categories & populate the UI with the results -->
+
+            <div class="d-flex align-items-center">
+              <!--  hard code  laptop category      -->
+
+              <a href="#" class="nav-link">
+                <!-- <i class="bi bi-bar-chart"></i> -->
+                <span>
+                  <!--  fetch category name from DB -->
+                  Laptop
+                </span>
+              </a>
+              <i class="bi bi-chevron-down ms-auto i-btn"></i>
+            </div>
+
+            <ul id="laptop-nav" class="sub-categories-UL">
+              <!--close-->
+              <!-- sub-category, hard code laptop parts as sub-category of laptop, fetch data from DB  -->
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link" role="button">
+                  <!-- <i class="bi bi-circle"></i> -->
+                  <!--  load sub-category name from DB and output here  -->
+                  <span>Laptop Parts</span>
+                  <span class="sub-cat-list">
+                    <i class="bi bi-chevron-down ms-auto i-btn"></i>
+                  </span>
+                </a>
+
+                <!-- sub-category data gets loaded here  -->
+                <ul class="sub-categories-UL__data-list">
+                  <li><a href="#" class="dropdown-item">Screen</a></li>
+                  <li><a href="#" class="dropdown-item">Battery</a></li>
+                  <li><a href="#" class="dropdown-item">HDD</a></li>
+                  <li><a href="#" class="dropdown-item">Others</a></li>
+                </ul>
+                <!-- sub-category data loading ends -->
+              </li>
+            </ul>
+          </li>
+          <!-- laptop category ends  -->
+
+          <!--   hard code another category - desktop category. note --- this is not necessary  -->
+          <!-- same markup as Laptop category, loading data from DB, we use one markup  -->
+          <li class="nav-item">
+            <div class="d-flex align-items-center">
+              <a href="#" class="nav-link">
+                <!-- <i class="bi bi-bar-chart"></i> -->
+                <span>Desktop</span>
+              </a>
+              <i class="bi bi-chevron-down ms-auto i-btn"></i>
+            </div>
+
+            <ul id="desktop-nav" class="sub-categories-UL">
+              <!--close -->
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link" role="button">
+                  <!-- <i class="bi bi-circle"></i> -->
+                  <span>Desktop Parts</span>
+                  <span class="sub-cat-list">
+                    <i class="bi bi-chevron-down ms-auto i-btn"></i>
+                  </span>
+                </a>
+
+                <ul class="sub-categories-UL__data-list">
+                  <li><a href="#" class="dropdown-item">Processor</a></li>
+                  <li><a href="#" class="dropdown-item">Motherboard</a></li>
+                  <li><a href="#" class="dropdown-item">Hard drives</a></li>
+                  <li><a href="#" class="dropdown-item">Others</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <!--   hard coded desktop category end  -->
+        </ul>
+        <!-- category UL ends  -->
+      </div>
+      <!-- categories wrapper end -->
+    </li>
+    <!-- categories ends -->
+
+    <hr class="sidebar__divider" />
+    <!-- links  -->
+    <!-- <li class="nav-heading">links</li> -->
+    <h5 class="sidebar-nav-header">links</h5>
+
+    <li class="sidebar__nav__list-item">
+      <a class="nav-link" href="{{ url_for('sign_up') }}">
+        <i class="bi bi-card-list"></i>
+        <span>Sign Up</span>
+      </a>
+    </li>
+
+    <li class="sidebar__nav__list-item">
+      <a class="nav-link" href="{{ url_for('login') }}">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>Login</span>
+      </a>
+    </li>
+
+    <!-- links end -->
+  </ul>
+</aside>
