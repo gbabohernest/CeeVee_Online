@@ -1,4 +1,5 @@
 from CeeVee_Online.models.CategoryRepository import *
+from CeeVee_Online.main.category_errors import CategoryNotFoundException
 from sqlalchemy import asc, desc
 
 
@@ -7,14 +8,13 @@ class CategoryService:
 
     @staticmethod
     def list_by_page(category_info, page_number, sort_dir, keyword):
-        root_categories_per_page = 4
         sort = asc(Category.name) if sort_dir == 'asc' else desc(Category.name)
 
         if keyword:
-            page_categories = Category.query.filter(Category.name.ilike(f"%{keyword}%"))\
+            page_categories = Category.query.filter(Category.name.ilike(f"%{keyword}%")) \
                 .paginate(page=page_number, per_page=CategoryService.ROOT_CATEGORIES_PER_PAGE)
         else:
-            page_categories = Category.query.filter_by(parent=None).order_by(sort)\
+            page_categories = Category.query.filter_by(parent=None).order_by(sort) \
                 .paginate(page=page_number, per_page=CategoryService.ROOT_CATEGORIES_PER_PAGE)
         root_categories = page_categories.items
         category_info['total_elements'] = page_categories.total
@@ -99,7 +99,7 @@ class CategoryService:
 
         for root_category in root_categories:
             hierarchical_categories.append(root_category)
-            children = Category.sort_sub_categories(root_category.children)
+            children = CategoryService.sort_sub_categories(root_category.children)
 
             for sub_category in children:
                 name = "--" + sub_category.name
@@ -110,7 +110,7 @@ class CategoryService:
 
     @staticmethod
     def list_sub_categories_used_in_form(categories_inform, parent, sub_level):
-        children = Category.sort_sub_categories(parent.children)
+        children = CategoryService.sort_sub_categories(parent.children)
 
         for sub_category in children:
             name = "-" * (sub_level * 2) + sub_category.name
@@ -120,3 +120,35 @@ class CategoryService:
     @staticmethod
     def get_all_categories():
         return Category.query.all()
+
+    @staticmethod
+    def get_category(alias):
+        category = find_by_alias(alias)
+        if category is None:
+            raise CategoryNotFoundException(
+                f"Couldn't find any category with alias {alias}"
+            )
+        return category
+
+    @staticmethod
+    def list_not_children_categories(self):
+        list_not_children = []
+        list_enabled_categories = find_all_enabled()
+
+        for category in list_enabled_categories:
+            if not category.children:
+                list_not_children.append(category)
+
+        return list_not_children
+
+    @staticmethod
+    def get_category_parents(child):
+        list_parents = []
+        parent = child.parent
+
+        while parent is not None:
+            list_parents.insert(0, parent)
+            parent = parent.parent
+
+        list_parents.append(child)
+        return list_parents

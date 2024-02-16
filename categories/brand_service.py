@@ -13,7 +13,8 @@ class BrandService:
     def list_by_page(self, page_num, sort_field, sort_dir, keyword):
         sort = sort_field if sort_dir == "asc" else f"{sort_field} DESC"
         # Perform the query using the sort and keyword, limit, and pagination
-        results = self.brand_repository.query.filter(self.brand_repository.name.like(f"%{keyword}%")).order_by(sort).paginate(page_num, per_page=BRAND_PER_PAGE)
+        results = self.brand_repository.query.filter(self.brand_repository.name.like(f"%{keyword}%"))\
+            .order_by(sort).paginate(page_num, per_page=self.BRAND_PER_PAGE)
         return results
 
     def get_brand_by_id(self, id):
@@ -39,3 +40,4 @@ class BrandService:
         else:
             existing_brand = self.brand_repository.query.filter(self.brand_repository.id != id, self.brand_repository.name == name).first()
             return "Duplicate" if existing_brand else "OK"
+

@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint, url_for, flash, redirect, request
-from CeeVee_Online.users.forms import Category, SignUpForm, SignInForm, User, Role, ResetPasswordForm, RequestResetForm
+from CeeVee_Online.users.forms import Category, SignUpForm, SignInForm, User, ResetPasswordForm, RequestResetForm
 from CeeVee_Online import bcrypt, db
 from CeeVee_Online.categories.category_service import CategoryService
 from flask_login import current_user, login_user, logout_user
@@ -95,27 +95,28 @@ def payment():
     return render_template('payment.html', title='Payment')
 
 
-@users.route("/signup", methods=('GET', 'POST'))
+@users.route("/signup", methods=['GET', 'POST'])
 def sign_up():
     """Signup view function. Handles signup form validations
     Return: signup view
     """
     if current_user.is_authenticated:
-        return redirect(url_for('users.home'))
+        return redirect(url_for('home'))
 
-    form = SignUpForm();
+    form = SignUpForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(first_name=form.first_name.data,
-                    last_name=form.last_name.data, email=form.email.data,
-                    password=hashed_password)
-        role_name = Role(name="Admin", role_description="Manage everything")
-        user.roles.append(role_name)
+        user = User(
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data,
+            password=hashed_password)
         db.session.add(user)
-        db.session.commit();
-        flash(f'Account created for {form.username.data}! you''re now able to login', 'success')
-        return redirect(url_for('users.login'))
-    return render_template("signup.html", title='Register', form=form);
+        db.session.commit()
+        flash(f'Account created for {form.username.data}! You are now able to login', 'success')  # Fixed the flash message
+        return redirect(url_for('login'))
+    return render_template("signup.html", title='Register', form=form)
+
 
 
 @users.route("/login", methods=('GET', 'POST'))

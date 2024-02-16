@@ -98,3 +98,18 @@ def update_enabled_category(id, enabled):
     if category:
         category.enabled = enabled
         db.session.commit()
+
+
+def find_all_enabled():
+    """Find all enabled categories
+    return: Enabled categories
+    """
+    return Category.query.filter_by(enabled=True).order_by(Category.name).all()
+
+
+def find_by_alias(alias):
+    """Find categories by alias
+
+    return: fetched category
+    """
+    return Category.query.filter_by(enabled=True, alias=alias).first()

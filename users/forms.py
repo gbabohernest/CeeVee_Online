@@ -6,11 +6,6 @@ from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
 
-""" User class"""
-user_role = db.Table('users_roles',
-                     db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-                     db.Column('role_id', db.Integer, db.ForeignKey('roles.id')))
-
 brands_categories = db.Table('brands_categories',
                              db.Column('brand_id', db.Integer, db.ForeignKey('brands.id'), primary_key=True),
                              db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True)
@@ -31,9 +26,8 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(120), unique=False, nullable=False)
     photo = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
-    roles = db.relationship('Role', secondary="users_roles", backref="users",
-                            primaryjoin="User.id == users_roles.c.user_id",
-                            secondaryjoin="Role.id == users_roles.c.role_id")
+    role = db.Column(db.String(60), nullable=False, default='customer')
+
 
     def get_reset_token(self, expires_sec=1800):
         s = Serializer(current_app.config['SECRET_KEY'], expires_sec);
@@ -47,17 +41,6 @@ class User(db.Model, UserMixin):
         except:
             return None
         return User.query.get(user_id);
-
-
-class Role(db.Model):
-    __tablename__ = 'roles'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False, unique=True)
-    role_description = db.Column(db.String(100), nullable=False)
-
-    def __repr__(self):
-        return "Role('{}', '{}', '{}')" \
-            .format(self.id, self.name, self.role_description)
 
 
 class Category(db.Model):
@@ -166,6 +149,18 @@ class SignUpForm(FlaskForm):
                                      validators=[DataRequired(), EqualTo('password')])
 
     sign_up = SubmitField('Sign Up')
+
+    def validate_username(self, username):
+        """Validate fields - username"""
+        user = User.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError("That username is taken, please choose another one")
+
+    def validate_email(self, email):
+        """Validate fields - password"""
+        user = User.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError("That email is taken, please choose another one")
 
 
 class SignInForm(FlaskForm):
