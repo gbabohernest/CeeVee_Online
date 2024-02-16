@@ -3,21 +3,19 @@
 */
 @use '../utils/' as u;
 
-.container {
-  display: flex;
+.form-wrapper {
+  @extend %flex;
   justify-content: center;
-  align-items: center;
   height: 90%;
-  //   height: 65vh;
-  padding: u.rem(20);
+  padding-inline: u.rem(20);
+  padding-bottom: u.rem(18);
+  margin-top: u.rem(100);
+  margin-bottom: u.rem(50);
 
   &__form {
-    // max-width: 400px;
-    // width: 100%;
-    // padding: u.rem(20px);
-    width: min(100% - u.rem(20), 400px);
+    width: min(100% - u.rem(20), 500px);
     margin-inline: auto;
-    padding: u.rem(30);
+    padding: u.rem(20);
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -27,12 +25,16 @@
     }
 
     .form-group {
-      margin-bottom: u.rem(15px);
+      margin-bottom: u.rem(15);
 
       .label {
+        width: 50%;
         display: block;
-        // margin-bottom: u.rem(5);
         margin: u.rem(10) 0;
+
+        @include u.breakpoint-down(medium) {
+          font-size: u.rem(12);
+        }
       }
 
       .input {
@@ -54,18 +56,19 @@
       }
 
       .invalid-feedback {
+        display: block;
         font-size: u.rem(12);
         color: rgb(233, 62, 62);
       }
     }
 
     .checkbox {
-      display: flex;
-      align-items: center;
+      @extend %flex;
       justify-content: space-between;
       font-size: u.rem(13);
 
       &__wrapper {
+        width: 50%;
         display: flex;
         gap: u.rem(5);
       }
@@ -114,18 +117,38 @@
  flash message styles
 */
 .alert {
-  width: min(80% - u.rem(15), u.em(300));
-  display: flex;
+  @extend %flex;
   justify-content: center;
-  align-items: center;
+  width: min(80% - u.rem(15), u.em(300));
   height: u.em(20);
   padding: u.rem(15);
-  margin: u.rem(5) auto;
+  // margin: u.rem(5) auto;
+  margin: u.rem(100) auto u.rem(5);
   color: #ffff;
+
+  @include u.breakpoint-down(medium) {
+    height: u.em(36);
+    font-size: u.rem(15);
+  }
 }
 .alert-success {
   background-color: rgb(153, 196, 153);
 }
 .alert-danger {
   background-color: rgb(233, 62, 62);
+}
+
+// form layout styles
+
+.form-flex-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .form-flex {
+    display: flex;
+
+    .input-width-full {
+      width: 100%;
+    }
+  }
 }
