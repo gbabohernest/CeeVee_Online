@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 from CeeVee_Online import create_app, db, bcrypt
 from CeeVee_Online.users.forms import User, Role
 app = create_app()
-=======
+
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import SignUpForm, SignInForm
 
@@ -53,7 +53,6 @@ def login():
         else:
             flash(f'Login failed, check credentials', 'danger')
     return render_template('login.html', title='SignIn', form=form)
->>>>>>> cfe74432dc7e2187812755b98c673b4b5df693f4
 
 
 if __name__ == "__main__":
