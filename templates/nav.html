@@ -1,5 +1,8 @@
 <nav class="d-flex align-items-center">
-  <div class="d-flex align-items-center justify-content-between">
+  <div
+    class="d-flex align-items-center justify-content-between"
+    style="gap: 20px"
+  >
     <a href="{{ url_for('home')}}" class="logo d-flex align-items-center">
       <img
         src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTy66GYnXr-OIM3Gg9hfF6jYgvrIVMKUm7PZh4P3Ytml1MPgWvm1KTHXPqoDVkfLvdn-kmojEifc9fi9gAodu06NZ_IzQ=s2560"
@@ -7,7 +10,7 @@
       />
       <span class="d-none d-lg-block">CeeVee</span>
     </a>
-    <i class="bi bi-list toggle-sidebar-btn">
+    <i class="bi bi-list toggle-sidebar-btn" id="toggle-sidebar-btn">
       <!-- toggle hamburger menu         -->
     </i>
   </div>

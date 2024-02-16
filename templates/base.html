@@ -61,60 +61,12 @@
     <!-- header starts -->
     <header class="header fixed-top d-flex align-items-center" id="header">
       {% include 'nav.html' %}
-      <!-- <div class="header__nav-wrapper">
-        <nav class="navbar">
-            <div class="navbar__left">
-                <a href="{{ url_for('home') }}" class="navbar__left__logo"
-                ><h1>
-                    <span class="first_letter_word">C</span>ee<span
-                        class="fourth_letter"
-                >v</span
-                >ee
-                </h1></a
-                >
-
-                <ul class="navbar__left__links">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="/categories.html">Categories</a></li>
-                </ul>
-            </div>
-
-            <div class="navbar__right">
-                <ul>
-                    <li>
-                        <a href="{{ url_for('login') }}">
-                            Sign in
-                            <i class="fa fa-sign-in" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('sign_up') }}">
-                            Sign up
-                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    &lt;!&ndash; <button class="sell">sell</button> &ndash;&gt;
-                    <li>
-                        <a href="#" class="sell">sell</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
--->
-      <!-- <div class="header__form">
-        <input
-          type="text"
-          autocomplete="off"
-          spellcheck="false"
-          tabindex="0"
-          placeholder="Search for products"
-        />
-
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </div> -->
     </header>
     <!-- header ends -->
+
+    <!-- sidebar -->
+    {% include 'sidebar.html' %}
+    <!-- sidebar ends -->
 
     <!-- display flash message logic -->
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
@@ -135,7 +87,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script> -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
     <!-- Bootstrap JS Bundle (Popper included) -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -145,5 +97,7 @@
 
     <!-- hamburger Js -->
     <script src="{{ url_for('static', filename='hamburger.js') }}"></script>
+    <!-- sidebar Js -->
+    <script src="{{ url_for('static', filename='sidebar_control.js') }}"></script>
   </body>
 </html>
