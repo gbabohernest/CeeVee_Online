@@ -12,7 +12,7 @@
 
     <!-- Favicons -->
 
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="../static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap">
@@ -44,7 +44,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+        <a href="{{ url_for('users.home') }}" class="logo d-flex align-items-center">
             <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTy66GYnXr-OIM3Gg9hfF6jYgvrIVMKUm7PZh4P3Ytml1MPgWvm1KTHXPqoDVkfLvdn-kmojEifc9fi9gAodu06NZ_IzQ=s2560"
                  alt="">
             <span class="d-none d-lg-block">CeeVee</span>
@@ -694,7 +694,7 @@
                 <!-- start carparts nav -->
                 <li class="nav-item">
                     <div class="d-flex align-items-center">
-                        <a class="nav-link collapsed" href="{{ url_for('home') }}">
+                        <a class="nav-link collapsed" href="{{ url_for('users.home') }}">
                             <i class="bi bi-bar-chart"></i><span>Car parts/Accessories</span>
                         </a>
                         <i data-bs-target="#carpart-nav" data-bs-toggle="collapse"
@@ -744,14 +744,14 @@
         <li class="nav-heading">links</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url_for('sign_up') }}">
+            <a class="nav-link collapsed" href="{{ url_for('users.sign_up') }}">
                 <i class="bi bi-card-list"></i>
                 <span>Register</span>
             </a>
         </li><!-- End link -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url_for('login') }}">
+            <a class="nav-link collapsed" href="{{ url_for('users.login') }}">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Login</span>
             </a>
@@ -785,7 +785,7 @@
         <h1>Pending</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('users.home') }}">Home</a></li>
                 <li class="breadcrumb-item active">Pending</li>
             </ol>
         </nav>

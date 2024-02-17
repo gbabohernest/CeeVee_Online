@@ -1,7 +1,7 @@
 <aside class="sidebar collapse-small-device">
   <ul class="sidebar__nav" id="sidebar__nav">
     <li class="sidebar__nav__list-item">
-      <a href="{{ url_for('home') }}" class="nav-link-default">
+      <a href="{{ url_for('users.home') }}" class="nav-link-default">
         <i class="bi bi-grid"></i>
         <span>Home</span>
       </a>
@@ -114,14 +114,14 @@
     <h5 class="sidebar-nav-header">links</h5>
 
     <li class="sidebar__nav__list-item">
-      <a class="nav-link" href="{{ url_for('sign_up') }}">
+      <a class="nav-link" href="{{ url_for('users.sign_up') }}">
         <i class="bi bi-card-list"></i>
         <span>Sign Up</span>
       </a>
     </li>
 
     <li class="sidebar__nav__list-item">
-      <a class="nav-link" href="{{ url_for('login') }}">
+      <a class="nav-link" href="{{ url_for('users.login') }}">
         <i class="bi bi-box-arrow-in-right"></i>
         <span>Login</span>
       </a>

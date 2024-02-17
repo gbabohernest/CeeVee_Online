@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% macro content(product) %}
+    <div class="col-sm-2">
+        <a href="{{ '/p/' ~ product.alias }}">
+            <div>
+                <img src="{{ product.main_image_path }}" alt="Main Image" width="150"/>
+                <br/>
+                <b>{{ product.short_name }}</b>
+            </div>
+        </a>
+        {% include 'products/product_fragment.html' %}
+    </div>
+{% endmacro %}
+
+{% macro product_price(product) %}
+    {% if product.discount_percent <= 0 %}
+        {% price_fragment(product.price) %}
+    {% else %}
+        <span style="font-size: larger; color: darkred">
+           {% price_fragment(product.discount_price) %}
+        </span>
+        <del>
+            <span>{% price_fragment(product.price) %}</span>
+        </del>
+    {% endif %}
+{% endmacro %}
+
+{% macro price_fragment(productPrice) %}
+    {% if CURRENCY_SYMBOL_POSITION == 'Before price' %}
+        <span>{{ CURRENCY_SYMBOL }}</span>
+    {% endif %}
+    {{ '%.1f'|format(productPrice) }}
+    {% if CURRENCY_SYMBOL_POSITION == 'After price' %}
+        <span>{{ CURRENCY_SYMBOL }}</span>
+    {% endif %}
+{% endmacro %}
+</body>
+</html>

@@ -1,10 +1,69 @@
 from flask import render_template, Blueprint, url_for, flash, redirect, request
-from CeeVee_Online.users.forms import SignUpForm, SignInForm, User, Role, ResetPasswordForm, RequestResetForm
+from CeeVee_Online.users.forms import Category, SignUpForm, SignInForm, User, ResetPasswordForm, RequestResetForm
 from CeeVee_Online import bcrypt, db
+from CeeVee_Online.categories.category_service import CategoryService
 from flask_login import current_user, login_user, logout_user
 from CeeVee_Online.users.utils import send_reset_email
 
 users = Blueprint("users", __name__)
+
+category_service = CategoryService()
+
+
+# class cat(db.Model):
+#     __tablename__ = 'ceevee_categories'
+#     id = db.Column(db.Integer, primary_key=True)
+#     Laptop_part = db.Column(db.String(255))
+#     Laptop_Accessory = db.Column(db.String(255))
+#     Desktop_Part = db.Column(db.String(255))
+#     Desktop_Accessory = db.Column(db.String(255))
+#     Phone_Part = db.Column(db.String(255))
+#     Phone_Accessory = db.Column(db.String(255))
+#     Tablet_Part = db.Column(db.String(255))
+#     Tablet_Accessory = db.Column(db.String(255))
+#     Console_part = db.Column(db.String(255))
+#     Console_Accessories = db.Column(db.String(255))
+#     Appliance_Home = db.Column(db.String(255))
+#     Appliance_Kitchen = db.Column(db.String(255))
+#     Server_Networking = db.Column(db.String(255))
+#     Sound = db.Column(db.String(255))
+#     Video_Pictures = db.Column(db.String(255))
+#     Car = db.Column(db.String(255))
+#     Car_Part = db.Column(db.String(255))
+#     Car_Accessory = db.Column(db.String(255))
+
+#
+# def replace_underscores_with_spaces(lst):
+#     """
+#     Replace underscores with spaces in each string within a list object.
+#
+#     Args:
+#     lst (list): A list object containing strings.
+#
+#     Returns:
+#     list: A new list object with underscores replaced by spaces in each string.
+#     """
+#     new_lst = []  # Initialize an empty list to store modified strings
+#
+#     # Iterate over each string in the input list
+#     for string in lst:
+#         # Replace underscores with spaces in the current string
+#         modified_string = string.replace('_', ' ')
+#         # Add the modified string to the new list
+#         new_lst.append(modified_string)
+#
+#     return new_lst
+
+
+@users.route("/")
+def index():
+    """
+    Get the columns of the cat model
+    """
+    category_service_ = CategoryService()
+    for categories_ in category_service_.get_all_categories():
+        return render_template('backup/home.html', categories_=categories_)
+
 
 
 @users.route("/home")
@@ -37,27 +96,34 @@ def payment():
     return render_template('payment.html', title='Payment')
 
 
-@users.route("/signup", methods=('GET', 'POST'))
+@users.route("/signup", methods=['GET', 'POST'])
 def sign_up():
     """Signup view function. Handles signup form validations
     Return: signup view
     """
     if current_user.is_authenticated:
-        return redirect(url_for('users.home'))
+        return redirect(url_for('home'))
 
-    form = SignUpForm();
+    form = SignUpForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+
         user = User(first_name=form.first_name.data,
                     last_name=form.last_name.data, email=form.email.data,
-                    password=hashed_password)
-        role_name = Role(name="Admin", role_description="Manage everything")
-        user.roles.append(role_name)
+                    password=hashed_password, role="customers")
+
+        user = User(
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data,
+            password=hashed_password)
+
         db.session.add(user)
-        db.session.commit();
-        flash(f'Account created for {form.username.data}! you''re now able to login', 'success')
-        return redirect(url_for('users.login'))
-    return render_template("signup.html", title='Register', form=form);
+        db.session.commit()
+        flash(f'Account created for {form.username.data}! You are now able to login',
+              'success')  # Fixed the flash message
+        return redirect(url_for('login'))
+    return render_template("signup.html", title='Register', form=form)
 
 
 @users.route("/login", methods=('GET', 'POST'))

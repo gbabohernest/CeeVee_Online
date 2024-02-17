@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="container-fluid">
+
+    <div class="row text-center">
+        {% for cat in category.children %}
+            {% if cat.enabled %}
+                <div class="col">
+                    <a href="{{ '/c/' + cat.alias }}">
+                        <img src="{{ cat.image_path }}" height="100" alt="category path"/><br/>
+                        <b>{{ cat.name }}</b>
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        {% for product in listProducts %}
+            <div class="row">
+                {% include 'products/product_fragment.html' %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

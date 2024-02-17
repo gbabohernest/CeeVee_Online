@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+    {% include 'fragments/page_head.html' with pageTitle, 'none' %}
+    {% include 'navigation/header_menu.html' %}
+    {% include 'navigation/search_nav.html' %}
+
+    {% if totalItems > 0 %}
+        <div><h1>Search Results for '{{ keyword }}'</h1></div>
+    {% else %}
+        <div><h1>No match found for '{{ keyword }}'</h1></div>
+    {% endif %}
+
+    <div class="row">
+        {% for product in listResult %}
+            <div>{% include 'products/product_fragment.html' %}</div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

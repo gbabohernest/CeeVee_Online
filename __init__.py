@@ -14,6 +14,7 @@ mail = Mail()
 
 
 def create_app(config_class=Config):
+    """Main entrypoint of the application"""
     app = Flask(__name__)
 
     with app.app_context():
@@ -28,8 +29,14 @@ def create_app(config_class=Config):
         login_manager.init_app(app)
 
         from CeeVee_Online.users.routes import users
+        from CeeVee_Online.main.category_errors import errors
+        from CeeVee_Online.categories.routes import categories
+        from CeeVee_Online.products.routes import products
 
         app.register_blueprint(users)
+        app.register_blueprint(errors)
+        app.register_blueprint(categories)
+        app.register_blueprint(products)
     return app
 
 
