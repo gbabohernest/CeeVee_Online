@@ -1,0 +1,14 @@
+// using css custom properties
+
+:root {
+  --background-color: hsl(0, 0%, 11%);
+  --text-color-nav: hsl(218, 98%, 22%);
+  --text-color: hsl(0, 0%, 100%);
+  --link-color: #000;
+
+  --logo-color: #03b8d1;
+
+  //   font-family
+  --font: 'Open Sans', sans-serif;
+  --font-family: 'Nunito', sans-serif;
+}

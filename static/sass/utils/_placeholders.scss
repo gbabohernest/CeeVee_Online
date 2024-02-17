@@ -1,0 +1,31 @@
+@use 'breakpoints' as b;
+@use 'function' as f;
+
+%flex {
+  display: flex;
+  align-items: center;
+}
+
+%logo {
+  @include b.breakpoint-up(large) {
+    width: f.rem(280);
+  }
+
+  img {
+    max-height: f.rem(26);
+    margin-right: f.rem(6);
+  }
+  span {
+    font-size: f.rem(26);
+    font-weight: 700;
+    color: var(--logo-color);
+  }
+}
+
+%sidebar-nav-link-default {
+  color: var(--logo-color);
+  background: #dae3e5;
+  opacity: 0.6;
+  // background: #f6f9ff;
+  border-radius: f.rem(5);
+}

@@ -1,0 +1,122 @@
+@use '../utils/' as u;
+
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  // scrollbar-width: thin;
+  // scrollbar-color: #aab7cf transparent;
+  padding: u.rem(20);
+  font-size: u.rem(13);
+  transition: all 0.3s ease-in-out;
+
+  &__nav {
+    padding: 0;
+    margin: 0;
+
+    &__list-item {
+      margin-bottom: u.rem(15);
+
+      span {
+        margin-left: u.rem(5);
+        // color: var(--link-color);
+        color: #4e5a6e; //testing
+
+        &:hover {
+          color: var(--logo-color);
+        }
+      }
+
+      .nav-link {
+        @extend %flex;
+        padding: u.rem(10) u.rem(15);
+
+        &:hover {
+          @extend %sidebar-nav-link-default;
+        }
+      }
+
+      .nav-link-default {
+        @extend %flex;
+        padding: u.rem(10) u.rem(15);
+        @extend %sidebar-nav-link-default;
+        span {
+          color: var(--logo-color);
+        }
+      }
+    }
+
+    // categories dropdown navigation list styles
+    .categories {
+      @extend %flex;
+      flex-direction: column;
+      transition: all 0.3s ease-in-out;
+
+      &__navigation-list {
+        width: 80%;
+        transition: all 0.3s ease-in-out;
+        .sub-categories-UL {
+          @extend %flex;
+          justify-content: center;
+          font-size: u.rem(11);
+
+          span.sub-cat-list {
+            margin-left: u.rem(15);
+          }
+
+          &__data-list {
+            display: grid;
+            justify-content: center;
+            place-content: center;
+
+            li {
+              a {
+                padding: u.rem(10) u.rem(15);
+                color: #4e5a6e;
+
+                &:hover {
+                  @extend %sidebar-nav-link-default;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-nav-header {
+    text-transform: uppercase;
+    font-size: u.rem(13);
+    color: grey;
+    font-weight: 600;
+    margin-bottom: u.rem(20);
+    padding-inline-start: u.rem(15);
+  }
+}
+
+//note this btn is in the nav..
+.toggle-sidebar-btn {
+  cursor: pointer;
+}
+
+.close-sidebar {
+  left: -300px;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.collapse-small-device {
+  @include u.breakpoint-down(medium) {
+    left: -300px;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+i.icon-btn {
+  cursor: pointer;
+}

@@ -1,0 +1,136 @@
+@use '../utils/' as u;
+
+.header {
+  background-color: #fff;
+  height: u.em(60);
+  line-height: 1;
+  box-shadow: 0px u.rem(2) u.rem(20) hsla(218, 98%, 22%, 0.1);
+
+  nav {
+    width: min(100% - u.rem(20), u.rem(1816));
+    margin-inline: auto;
+    gap: u.rem(40);
+
+    .logo {
+      @extend %logo;
+    }
+
+    .search-nav-links-wrapper {
+      width: 100%;
+
+      a {
+        // color: var(--text-color-nav);
+      }
+
+      .home-and-search-wrapper {
+        width: 50%;
+        gap: u.rem(25);
+
+        @include u.breakpoint-down(medium) {
+          width: 87%;
+        }
+
+        .search_wrapper {
+          width: 100%;
+          position: relative;
+
+          input {
+            width: 100%;
+            height: u.em(50);
+
+            // border-color: rgb(6, 243, 243);
+            box-shadow: 0px u.rem(2) u.rem(20) hsla(218, 98%, 22%, 0.1);
+            border: none;
+            border-radius: u.rem(5);
+            padding: u.rem(10);
+            cursor: pointer;
+
+            &:focus {
+              outline: none;
+              border: none;
+              box-shadow: none;
+            }
+
+            @include u.breakpoint-down(medium) {
+              font-size: u.rem(12);
+            }
+            @include u.breakpoint-down(small) {
+              font-size: u.rem(10);
+            }
+          }
+
+          i {
+            position: absolute;
+            top: 50%;
+            right: 2%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 150%;
+            color: var(--logo-color);
+
+            @include u.breakpoint-down(medium) {
+              font-size: 100%;
+            }
+
+            @include u.breakpoint-down(small) {
+              font-size: 50%;
+            }
+          }
+        }
+      }
+
+      ul.hide_for_mobile {
+        @extend %flex;
+        margin-inline: 0;
+        gap: u.rem(25);
+
+        li {
+          a {
+            i {
+              margin-left: u.rem(5);
+              color: var(--logo-color);
+            }
+          }
+        }
+        @include u.breakpoint-down(medium) {
+          display: none;
+        }
+      }
+
+      .hide_for_desktop {
+        // cursor: pointer;
+        @include u.breakpoint-up(large) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+//toggle btn
+.close {
+  display: none !important;
+}
+
+div.mobile-nav-links {
+  width: 150px;
+  background: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: fixed;
+  top: 60px;
+  right: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: u.rem(30);
+  font-size: u.rem(12);
+  @include u.breakpoint-up(large) {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(20);
+  }
+}
