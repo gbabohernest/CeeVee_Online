@@ -55,7 +55,7 @@ category_service = CategoryService()
 #     return new_lst
 
 
-@users.route('/')
+@users.route("/")
 def index():
     """
     Get the columns of the cat model
@@ -113,10 +113,10 @@ def sign_up():
             password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        flash(f'Account created for {form.username.data}! You are now able to login', 'success')  # Fixed the flash message
+        flash(f'Account created for {form.username.data}! You are now able to login',
+              'success')  # Fixed the flash message
         return redirect(url_for('login'))
     return render_template("signup.html", title='Register', form=form)
-
 
 
 @users.route("/login", methods=('GET', 'POST'))

@@ -78,7 +78,7 @@ class Category(db.Model):
     def image_path(self):
         if self.id is None:
             return "../static/images/image-thumbnail.png"
-        return f"../static/images/category-images/{self.id}/{self.image}"
+        return f"../static/images/categories-images/{self.id}/{self.image}"
 
     def __repr__(self):
         return "<Category(name='%s', alias='%s')>" % (self.name, self.alias)
@@ -119,7 +119,7 @@ class Brand(db.Model):
 
     id = db.Column(db.Integer, nullable=False, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    brand_logo = db.Column(db.String(20), nullable=False, default='default.jpg')
+    logo = db.Column(db.String(20), nullable=False, default='default.jpg')
     categories = db.relationship('Category', secondary=brands_categories, backref=db.backref('brands', lazy=True))
 
     def __init__(self, name, logo="brand-logo.png"):
