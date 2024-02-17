@@ -6,73 +6,6 @@ from CeeVee_Online.users.utils import send_reset_email
 
 users = Blueprint("users", __name__)
 
-class cat(db.Model):
-    __tablename__ = 'ceevee_categories'
-    id = db.Column(db.Integer, primary_key=True)
-    Laptop_part = db.Column(db.String(255))
-    Laptop_Accessory = db.Column(db.String(255))
-    Desktop_Part = db.Column(db.String(255))
-    Desktop_Accessory = db.Column(db.String(255))
-    Phone_Part = db.Column(db.String(255))
-    Phone_Accessory = db.Column(db.String(255))
-    Tablet_Part = db.Column(db.String(255))
-    Tablet_Accessory = db.Column(db.String(255))
-    Console_part = db.Column(db.String(255))
-    Console_Accessories = db.Column(db.String(255))
-    Appliance_Home = db.Column(db.String(255))
-    Appliance_Kitchen = db.Column(db.String(255))
-    Server_Networking = db.Column(db.String(255))
-    Sound = db.Column(db.String(255))
-    Video_Pictures = db.Column(db.String(255))
-    Car = db.Column(db.String(255))
-    Car_Part = db.Column(db.String(255))
-    Car_Accessory = db.Column(db.String(255))
-
-
-def replace_underscores_with_spaces(lst):
-    """
-    Replace underscores with spaces in each string within a list object.
-
-    Args:
-    lst (list): A list object containing strings.
-
-    Returns:
-    list: A new list object with underscores replaced by spaces in each string.
-    """
-    new_lst = []  # Initialize an empty list to store modified strings
-
-    # Iterate over each string in the input list
-    for string in lst:
-        # Replace underscores with spaces in the current string
-        modified_string = string.replace('_', ' ')
-        # Add the modified string to the new list
-        new_lst.append(modified_string)
-
-    return new_lst
-
-
-
-@users.route('/')
-def index():
-        # Get the columns of the cat model
-    columns = cat.__table__.columns.keys()
-    # Query the database to get all laptop_part values from the table
-    rows = cat.query.all()
-
-    column_names = {}
-    for column in columns:
-        column_names[column] = [getattr(row, column) for row in rows]
-    cat_name = replace_underscores_with_spaces(column_names)
-
-    Laptop_part = [row.Laptop_part for row in rows]
-    Laptop_Accessory = [row.Laptop_Accessory for row in rows]
-    Desktop_Part = [row.Desktop_Part for row in rows]
-
-
-    # Pass the laptop_parts list to the template
-    return render_template('home.html', cat_name=cat_name, column_names=column_names, rows=rows, Laptop_part=Laptop_part, Laptop_Accessory=Laptop_Accessory, Desktop_Part=Desktop_Part)
-
-
 
 @users.route("/home")
 def home():
@@ -118,7 +51,7 @@ def sign_up():
         user = User(first_name=form.first_name.data,
                     last_name=form.last_name.data, email=form.email.data,
                     password=hashed_password)
-        role_name=Role(name="Admin", role_description="Manage everything")
+        role_name = Role(name="Admin", role_description="Manage everything")
         user.roles.append(role_name)
         db.session.add(user)
         db.session.commit();
