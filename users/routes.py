@@ -1,12 +1,11 @@
 from flask import render_template, Blueprint, url_for, flash, redirect, request
 from CeeVee_Online.users.forms import Category, SignUpForm, SignInForm, User, ResetPasswordForm, RequestResetForm
 from CeeVee_Online import bcrypt, db
-from CeeVee_Online.categories.category_service import CategoryService
 from flask_login import current_user, login_user, logout_user
 from CeeVee_Online.users.utils import send_reset_email
+from CeeVee_Online.categories.category_service import CategoryService
 
 users = Blueprint("users", __name__)
-
 category_service = CategoryService()
 
 
@@ -60,20 +59,19 @@ def index():
     """
     Get the columns of the cat model
     """
-    category_service_ = CategoryService()
-    for categories_ in category_service_.get_all_categories():
-        return render_template('backup/home.html', categories_=categories_)
-
+    return redirect(url_for('products.all_products'))
 
 
 @users.route("/home")
 def home():
-    return render_template('backup/home.html')
+    return redirect(url_for('products.all_products'))
 
 
 @users.route("/categories")
 def categories():
-    return render_template('listings.html', title='Categories')
+    return render_template("index.html",
+                           categories=category_service.get_all_categories(),
+                           title='Home')
 
 
 @users.route("/laptops")

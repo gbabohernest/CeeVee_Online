@@ -886,3 +886,10 @@ a:hover {
   font-size: 13px;
   color: #012970;
 }
+
+/*.person-pic i {*/
+/*  display: block; !* Set the image to display as block to position it vertically *!*/
+/*  margin: 0 auto; !* Center the image horizontally *!*/
+/*  font-size: 3rem; !* Adjust the font size as needed *!*/
+/*  color: #333; !* Set the color of the image icon *!*/
+/*}*/

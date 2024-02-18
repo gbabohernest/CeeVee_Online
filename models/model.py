@@ -1,13 +1,3 @@
-
-# from project import app, db
-# app.app_context().push()
-# db.create_all()
-# db.session.commit()
-# User.query.all()
-# User.query.filter_by(username='Ousmane').all()
-# User.query.filter_by(username='Ousmane')
-# db.drop_all()
-# db.create_all()
 from CeeVee_Online import db
 from CeeVee_Online.users.forms import Category, Brand
 from datetime import datetime

@@ -7,10 +7,14 @@ class ProductService:
     PRODUCTS_PER_PAGE = 10
     SEARCH_RESULT_PER_PAGE = 10
 
-    def list_by_category(self, page_num, category_id):
+    def list_by_category(self, page_num, cat_id):
         pagination = Product.query.paginate(page=page_num, per_page=self.PRODUCTS_PER_PAGE)
-        match = f"-{category_id}-"
-        return list_by_category(category_id, match, pagination)
+        match = f"-{cat_id}-"
+        return list_by_category(page_num, match, pagination)
+
+    def list_by_cat(self, cat_alias):
+        product = Product.query.filter(Product.category.has(alias=cat_alias)).all()
+        return product
 
     def get_product_by_alias(self, alias):
         product = find_by_alias(alias)

@@ -7,7 +7,7 @@
 <body>
 {% macro content(product) %}
     <div class="col-sm-2">
-        <a href="{{ '/p/' ~ product.alias }}">
+        <a href="{{ '/p/'+ product.alias }}">
             <div>
                 <img src="{{ product.main_image_path }}" alt="Main Image" width="150"/>
                 <br/>
@@ -18,27 +18,33 @@
     </div>
 {% endmacro %}
 
-{% macro product_price(product) %}
-    {% if product.discount_percent <= 0 %}
-        {% price_fragment(product.price) %}
-    {% else %}
-        <span style="font-size: larger; color: darkred">
-           {% price_fragment(product.discount_price) %}
-        </span>
-        <del>
-            <span>{% price_fragment(product.price) %}</span>
-        </del>
-    {% endif %}
-{% endmacro %}
+{#{% macro product_price(product) %}#}
+{#    {% if product.discount_percent <= 0 %}#}
+{#        {% for product in listProducts %}#}
+{#             <b> ₦ {% product.price %} </b>#}
+{#        {% endfor %}#}
+{#    {% else %}#}
+{#         {% for product in listProducts %}#}
+{#        <span style="font-size: larger; color: darkred">#}
+{#           <b>₦ {% product.discount_price %}</b>#}
+{#        </span>#}
+{#         {% endfor %}#}
+{#        <del>#}
+{#            <span>{% product.price %}</span>#}
+{#        </del>#}
+{#    {% endif %}#}
+{#{% endmacro %}#}
 
-{% macro price_fragment(productPrice) %}
-    {% if CURRENCY_SYMBOL_POSITION == 'Before price' %}
-        <span>{{ CURRENCY_SYMBOL }}</span>
-    {% endif %}
-    {{ '%.1f'|format(productPrice) }}
-    {% if CURRENCY_SYMBOL_POSITION == 'After price' %}
-        <span>{{ CURRENCY_SYMBOL }}</span>
-    {% endif %}
-{% endmacro %}
+{#{% macro price_fragment(productPrice) %}#}
+{#    {%  CURRENCY_SYMBOL_POSITION = "Before price" %}#}
+{#    {% CURRENCY_SYMBOL = "₦" %}#}
+{#    {% if CURRENCY_SYMBOL_POSITION == 'Before price' %}#}
+{#        <span>{{ CURRENCY_SYMBOL }}</span>#}
+{#    {% endif %}#}
+{#    {{ '%.1f'|format(productPrice) }}#}
+{#    {% if CURRENCY_SYMBOL_POSITION == 'After price' %}#}
+{#        <span>{{ CURRENCY_SYMBOL }}</span>#}
+{#    {% endif %}#}
+{#{% endmacro %}#}
 </body>
 </html>

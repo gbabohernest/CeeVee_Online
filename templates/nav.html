@@ -3,7 +3,7 @@
     class="d-flex align-items-center justify-content-between"
     style="gap: 20px"
   >
-    <a href="{{ url_for('home')}}" class="logo d-flex align-items-center">
+    <a href="{{ url_for('users.home')}}" class="logo d-flex align-items-center">
       <img
         src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTy66GYnXr-OIM3Gg9hfF6jYgvrIVMKUm7PZh4P3Ytml1MPgWvm1KTHXPqoDVkfLvdn-kmojEifc9fi9gAodu06NZ_IzQ=s2560"
         alt=""
@@ -21,7 +21,7 @@
     <div
       class="d-flex align-items-center justify-content-center home-and-search-wrapper"
     >
-      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('users.home') }}">Home</a>
 
       <div class="search_wrapper nav-item d-flex align-items-center">
         <input
@@ -39,13 +39,13 @@
 
     <ul class="hide_for_mobile">
       <li>
-        <a href="{{ url_for('sign_up') }}">
+        <a href="{{ url_for('users.sign_up') }}">
           Sign Up
           <i class="fa fa-user-plus" aria-hidden="true"></i>
         </a>
       </li>
       <li>
-        <a href="{{ url_for('login') }}">
+        <a href="{{ url_for('users.login') }}">
           Login
           <i class="fa fa-sign-in" aria-hidden="true"></i>
         </a>
@@ -64,13 +64,13 @@
 <div class="mobile-nav-links close" id="mobile_links">
   <ul>
     <li>
-      <a href="{{ url_for('sign_up') }}">
+      <a href="{{ url_for('users.sign_up') }}">
         Sign Up
         <i class="fa fa-user-plus" aria-hidden="true"></i>
       </a>
     </li>
     <li>
-      <a href="{{ url_for('login') }}">
+      <a href="{{ url_for('users.login') }}">
         Login
         <i class="fa fa-sign-in" aria-hidden="true"></i>
       </a>

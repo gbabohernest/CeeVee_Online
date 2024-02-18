@@ -107,9 +107,9 @@ def find_all_enabled():
     return Category.query.filter_by(enabled=True).order_by(Category.name).all()
 
 
-def find_by_alias(alias):
-    """Find categories by alias
-
-    return: fetched category
-    """
-    return Category.query.filter_by(enabled=True, alias=alias).first()
+# def find_by_alias(alias):
+#     """Find categories by alias
+#
+#     return: fetched category
+#     """
+#     return Category.query.filter_by(enabled=True, alias=alias).first()

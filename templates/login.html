@@ -1,19 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 
-<<<<<<< HEAD
     <section class="container">
         <form action="" method="POST" class="container__form">
             {{ form.hidden_tag() }}
-=======
-<section class="form-wrapper">
-  <form action="" method="POST" class="form-wrapper__form">
-    {{ form.hidden_tag() }}
->>>>>>> cfe74432dc7e2187812755b98c673b4b5df693f4
 
             <h2>Login</h2>
             <br/>
 
-<<<<<<< HEAD
             <div class="form-group">
                 {{ form.email.label(class="label") }}
                 <!-- check for errors in the form field      -->
@@ -53,57 +46,6 @@
                 </div>
                 <span class="forgot-password">
         <a href="{{ url_for('users.reset_password') }}">Forgot password?</a>
-=======
-    <div class="form-group">
-      <div class="form-flex-wrapper">
-        <div class="form-flex">
-          {{ form.email.label(class="label") }}
-
-          <div class="input-width-full">
-            <!-- check for errors in the form field      -->
-            {% if form.email.errors %} {{ form.email(class="input is-invalid")
-            }}
-            <!--  loop through the errors & display error message-->
-            <div class="invalid-feedback">
-              {% for error in form.email.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-            {% else %} {{ form.email(class="input") }} {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="form-flex-wrapper">
-        <div class="form-flex">
-          {{ form.password.label(class="label") }}
-
-          <div class="input-width-full">
-            <!-- check for errors in the form field      -->
-            {% if form.password.errors %} {{ form.password(class="input
-            is-invalid") }}
-            <!--  loop through the errors & display error message-->
-            <div class="invalid-feedback">
-              {% for error in form.password.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-            {% else %} {{ form.password(class="input") }} {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group checkbox">
-      <div class="checkbox__wrapper">
-        {{ form.remember_me(class="input-check") }} {{
-        form.remember_me.label(class="label") }}
-      </div>
-      <span class="forgot-password">
-        <a href="#">Forgot password?</a>
->>>>>>> cfe74432dc7e2187812755b98c673b4b5df693f4
       </span>
             </div>
 

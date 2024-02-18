@@ -6,9 +6,9 @@ from CeeVee_Online.models.model import Product
 
 def list_by_category(category_id, category_id_match, pageable):
     query = text(
-        f"USE ceevee; SELECT *FROM products"
-        f" WHERE enabled = true"
-        f" AND (category_id = :{category_id} OR {category_id_match} LIKE '{category_id_match}%' || :{category_id_match} || '%')"
+        f"USE ceevee; SELECT *FROM products as p"
+        f" WHERE p.enabled = true"
+        f" AND (p.category.id = :{category_id} OR category_id_match LIKE '-{category_id_match}-'"
         f" ORDER BY name ASC"
     )
     with db.engine.connect() as connection:

@@ -6,11 +6,6 @@ from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
 
-""" User class"""
-user_role = db.Table('users_roles',
-                     db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-                     db.Column('role_id', db.Integer, db.ForeignKey('role.id')))
-
 brands_categories = db.Table('brands_categories',
                              db.Column('brand_id', db.Integer, db.ForeignKey('brands.id'), primary_key=True),
                              db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True)
@@ -47,16 +42,6 @@ class User(db.Model, UserMixin):
         except:
             return None
         return User.query.get(user_id);
-
-
-class Role(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False, unique=True)
-    role_description = db.Column(db.String(100), nullable=False)
-
-    def __repr__(self):
-        return "Role('{}', '{}', '{}')" \
-            .format(self.id, self.name, self.role_description)
 
 
 class Category(db.Model):

@@ -16,7 +16,7 @@ brand_service = BrandService()
 @categories.route("/categories/all", methods=["GET"])
 def list_by_first_page():
     all_categories = category_service.get_all_categories()
-    return render_template("categories/categories.html", categories=all_categories)
+    return render_template("index.html", categories=all_categories)
 
 
 # @categories.route("/categories", methods=["GET"])

@@ -1,8 +1,6 @@
 import unittest
 from CeeVee_Online import db, bcrypt
 
-from CeeVee_Online.users.forms import User, Role
-from CeeVee_Online.app import app
 from CeeVee_Online.users.forms import User, Category
 from CeeVee_Online.app import app
 from CeeVee_Online.models.CategoryRepository import *

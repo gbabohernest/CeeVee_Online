@@ -122,6 +122,10 @@ class CategoryService:
         return Category.query.all()
 
     @staticmethod
+    def get_category_by_name(name):
+        return Category.query.filter_by(name=name).first()
+
+    @staticmethod
     def get_category(alias):
         category = find_by_alias(alias)
         if category is None:

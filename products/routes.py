@@ -1,6 +1,7 @@
 from flask import render_template, request, Blueprint
 from CeeVee_Online.categories.category_service import CategoryService
 from CeeVee_Online.products.product_service import ProductService
+from CeeVee_Online.models.model import Product
 from CeeVee_Online.main.category_errors import ProductNotFoundException
 
 products = Blueprint("products", __name__)
@@ -15,20 +16,13 @@ def view_category(category_alias, page_num=1):
     try:
         category = category_service.get_category(category_alias)
         list_category_parents = category_service.get_category_parents(category)
-        page_products = product_service.list_by_category(page_num, category.id)
-
-        start_count = (page_num - 1) * ProductService.PRODUCTS_PER_PAGE + 1
-        end_count = min(start_count + ProductService.PRODUCTS_PER_PAGE - 1, page_products.total)
+        page_products = product_service.list_by_cat(category.alias)
 
         return render_template("products/products_by_category.html",
                                currentPage=page_num,
-                               totalPages=page_products.pages,
-                               startCount=start_count,
-                               endCount=end_count,
-                               totalItems=page_products.total,
                                pageTitle=category.name,
                                listCategoryParents=list_category_parents,
-                               listProducts=page_products.items,
+                               listProducts=page_products,
                                category=category)
     except ProductNotFoundException as e:
         return render_template("errors/404.html", errors=e.description)
@@ -40,7 +34,7 @@ def view_product_details(product_alias):
         product = product_service.get_product_by_alias(product_alias)
         list_category_parents = category_service.get_category_parents(product.category)
 
-        return render_template("products/product_detail.html",
+        return render_template("listing.html",
                                listCategoryParents=list_category_parents,
                                product=product,
                                category=product.category,
@@ -67,3 +61,11 @@ def search_by_page(page_num=1):
                            pageTitle=keyword + " - Search Result",
                            listResult=page_products.items,
                            keyword=keyword)
+
+
+@products.route("/products_")
+def all_products():
+    """Get a product by alias"""
+    products_ = Product.query.all()
+    if products_:
+        return render_template("index.html", products_=products_)
