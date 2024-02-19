@@ -1,23 +1,89 @@
-{% extends "basee.html"%}
-{% block content %}
+{% extends "basee.html" %}
 
-{% for lap in Laptop_part%}
-    {% if lap != "" %}
-    <p>{{lap}}</p>
-    {% endif %}
-{% endfor %}
+{% block breadhead %}
+    Home
+{% endblock %}
 
-{% for lap in Laptop_Accessory%}
-    {% if lap != "" %}
-    <p>{{lap}}</p>
-    {% endif %}
-{% endfor %}
+{% block breadname %}
 
-{% for lap in Desktop_Part%}
-    {% if lap != "" %}
-    <p>{{lap}}</p>
-    {% endif %}
-{% endfor %}
+{% endblock %}
 
 
+{% block listing %}
+{% set count = [0] %}
+    {% set listing = laptop_list['post_id'] | length %}
+    {% for value in laptop_list['post_id'] %}
+        {% set count_integer = count[0] %}
+        {% if count_integer < listing %}
+            <!-- listings Card -->
+            <div class="col-xxl-3 col-md-4 col-lg-4 col-sm-6">
+                <div class="card listing">
+                    <div class="card-body position-relative">
+                        <a href="#" class="image-mask">
+                            <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYRrgvf9gpzKh5gPNaLSg0PvkWLnDSnKoIZ9CQ1G-BnjHGKX8UiYPGrMA8J_lvHGa2ke-3tOs_B5iH1SU-jsYKjBObWF4w=s1600" class="card-img-top image-overlay limit-image">
+                        </a>
+                        <i class="bi bi-plus-square position-absolute top-0 end-0"></i>
+                        <div class="d-flex">
+                            <div class="col-8 card-dis">
+                                <div class="row">
+                                    <div class="d-flex align-items-center dis-row">
+                                        <i class="bi bi-coin"></i>
+                                        <h3 class="mb-0">{{laptop_list['PRICE'][count_integer]}}</h3>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-laptop"></i>
+                                        <h5 class="mb-0">{{laptop_list['PRODUCT'][count_integer]}}</h5>
+                                    </div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        {% for key, value in laptop_list.items() %}
+                                            {% if key.startswith('DD') and value[count_integer] != "" %}
+                                                <div>
+                                                    <i class="bi bi-device-ssd"></i>
+                                                    <h7 class="pe-2">{{value[count_integer]}}</h7>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <div>
+                                            <i class="bi bi-memory"></i>
+                                            <h7 class="pe-2">{{laptop_list['RAM_CAPACITY'][count_integer]}}</h7>
+                                        </div>
+
+                                        <div>
+                                            <i class="bi bi-tv"></i>
+                                            <h7 class="pe-2">{{laptop_list['SCREEN_RESOLUTION'][count_integer]}}</h7>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-display"></i>
+                                            <h7 class="pe-2">{{laptop_list['SCREEN_TYPE'][count_integer]}}</h7>
+                                        </div>
+                                        {% for key, value in laptop_list.items() %}
+                                            {% if key.startswith('CPU') and value[count_integer] != "" %}
+                                        <div>
+                                            <i class="bi bi-cpu"></i>
+                                            <h7 class="pe-2">{{value[count_integer]}}</h7>
+                                        </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                                <a href="#">
+                                    <i class="bi bi-star"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="bi bi-star-half"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- listings Card -->
+        {% endif %}
+        {% if count.append(count.pop() + 1) %}
+        {% endif %}
+    {% endfor %}
 {% endblock %}

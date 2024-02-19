@@ -44,7 +44,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{{ url_for('users.home') }}" class="logo d-flex align-items-center">
         <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTy66GYnXr-OIM3Gg9hfF6jYgvrIVMKUm7PZh4P3Ytml1MPgWvm1KTHXPqoDVkfLvdn-kmojEifc9fi9gAodu06NZ_IzQ=s2560" alt="">
         <span class="d-none d-lg-block">CeeVee</span>
       </a>
@@ -61,6 +61,18 @@
 
 
       <ul class="d-flex align-items-center">
+
+
+
+        <!-- posting start -->
+            <li class="nav-item dropdown">
+
+              <a class="nav-link nav-icon" href="posting.html" data-bs-toggle="dropdown">
+                  <i class="bi bi-plus-circle-fill"></i>
+              </a>
+    
+            </li>
+        <!-- End posting-->
 
 
         <li class="nav-item dropdown">
@@ -324,10 +336,6 @@
         <!-- Home Navigation end -->
 
 
-
-
-
-
         <!-- start categories nav -->
         <li class="nav-item">
           <div class="d-flex align-items-center">
@@ -340,410 +348,49 @@
         <!-- start categories nav -->
 
 
-
+        {% for cat in sidebar %}
 
 
             <!-- start Laptop nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="laptop.html">
-            <i class="bi bi-bar-chart"></i><span>laptop</span>
-          </a>
-          <i data-bs-target="#laptop-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="laptop-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Laptop Parts</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-            {% for row in rows %}
-                {% if row.Laptop_part != "" %}
-                    <li><a class="dropdown-item" href="#">{{ row.Laptop_part }}</a></li>
-                {% endif %}
-            {% endfor %}
-
-
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Laptop Accessories</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-            {% for row in rows %}
-                {% if row.Laptop_Accessory != "" %}
-                    <li><a class="dropdown-item" href="#">{{ row.Laptop_Accessory }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <!-- End Laptop nav -->
-
-
-
-
-
-
-
-      <!-- start desktop nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="index.html">
-            <i class="bi bi-bar-chart"></i><span>Desktop</span>
-          </a>
-          <i data-bs-target="#desktop-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="desktop-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Desktop Parts</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-            {% for row in rows %}
-                {% if row.Desktop_Part != "" %}
-                    <li><a class="dropdown-item" href="#">{{ row.Desktop_Part }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Desktop Accessories</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-            {% for row in rows %}
-                {% if row.Desktop_Accessory != "" %}
-                    <li><a class="dropdown-item" href="#">{{ row.Desktop_Accessory }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <!-- End desktop nav -->
-
-
-      <!-- start Phone nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="index.html">
-            <i class="bi bi-bar-chart"></i><span>Phones</span>
-          </a>
-          <i data-bs-target="#phone-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="phone-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Phone Part</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-            {% for row in rows %}
-                {% if row.Phone_Part != "" %}
-                    <li><a class="dropdown-item" href="#">{{ row.Phone_Part }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Phone Accessory</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-            {% for row in rows %}
-                {% if row.Phone_Accessory != "" %}
-                    <li><a class="dropdown-item" href="#">{{ row.Phone_Accessory }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <!-- End phone nav -->
-
-
-      <!-- start Tablet nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="index.html">
-            <i class="bi bi-bar-chart"></i><span>Tablet</span>
-          </a>
-          <i data-bs-target="#tablet-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="tablet-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Tablet Part </span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-            {% for row in rows %}
-                {% if row.Tablet_Part  != "" %}
-                    <li><a class="dropdown-item" href="#">{{ row.Tablet_Part  }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Tablet Accessory</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-            {% for row in rows %}
-                {% if row.Tablet_Accessory != "" %}
-                    <li><a class="dropdown-item" href="#">{{ row.Tablet_Accessory}}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <!-- End Tablet nav -->
-
-
-
-      <!-- start Console nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="index.html">
-            <i class="bi bi-bar-chart"></i><span>Console</span>
-          </a>
-          <i data-bs-target="#console-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="console-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Console Accessories</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">Case</a></li>
-              <li><a class="dropdown-item" href="#">Controller</a></li>
-              <li><a class="dropdown-item" href="#">Games</a></li>
-              <li><a class="dropdown-item" href="#">Dock</a></li>
-              <li><a class="dropdown-item" href="#">Sticker</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Console Parts</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">Disk drive</a></li>
-              <li><a class="dropdown-item" href="#">Drive</a></li>
-              <li><a class="dropdown-item" href="#">Power supply</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-              <li><a class="dropdown-item" href="#">Lense</a></li>
-              <li><a class="dropdown-item" href="#">Charging port</a></li>
-              <li><a class="dropdown-item" href="#">Mic</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <!-- End Console nav -->
-
-
-
-      <!-- start Appliance nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="index.html">
-            <i class="bi bi-bar-chart"></i><span>Appliance</span>
-          </a>
-          <i data-bs-target="#appliance-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="appliance-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Home Appliance</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">TV</a></li>
-              <li><a class="dropdown-item" href="#">Sound system</a></li>
-              <li><a class="dropdown-item" href="#">Fan</a></li>
-              <li><a class="dropdown-item" href="#">Air conditioner</a></li>
-              <li><a class="dropdown-item" href="#">Washing machine</a></li>
-              <li><a class="dropdown-item" href="#">Router</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Kitchen Appliance</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">Blender</a></li>
-              <li><a class="dropdown-item" href="#">Microwave Oven</a></li>
-              <li><a class="dropdown-item" href="#">Fridge/Freezer</a></li>
-              <li><a class="dropdown-item" href="#">Toaster</a></li>
-              <li><a class="dropdown-item" href="#">Mixer</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <!-- End Appliance nav -->
-
-
-
-      <!-- start Professional nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="index.html">
-            <i class="bi bi-bar-chart"></i><span>Professional</span>
-          </a>
-          <i data-bs-target="#pro-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="pro-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Server/Networking</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">POE/switch</a></li>
-              <li><a class="dropdown-item" href="#">Routers</a></li>
-              <li><a class="dropdown-item" href="#">Video switch</a></li>
-              <li><a class="dropdown-item" href="#">Nas</a></li>
-              <li><a class="dropdown-item" href="#">LAN cable</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-
-
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Sound</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">Mic</a></li>
-              <li><a class="dropdown-item" href="#">Mic stand</a></li>
-              <li><a class="dropdown-item" href="#">sound mixer</a></li>
-              <li><a class="dropdown-item" href="#">Pop filters</a></li>
-              <li><a class="dropdown-item" href="#">Insulations</a></li>
-              <li><a class="dropdown-item" href="#">Mic stand</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-
-
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Video/pictures</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">DSLR</a></li>
-              <li><a class="dropdown-item" href="#">Video Recorder</a></li>
-              <li><a class="dropdown-item" href="#">Diffuser</a></li>
-              <li><a class="dropdown-item" href="#">Stage light/flash</a></li>
-              <li><a class="dropdown-item" href="#">Background</a></li>
-              <li><a class="dropdown-item" href="#">Camera stand</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <!-- End Professional nav -->
-
-
-
-      <!-- start Car nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="index.html">
-            <i class="bi bi-bar-chart"></i><span>Cars</span>
-          </a>
-          <i data-bs-target="#car-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="car-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-circle"></i><span>Sedans</span>
+            <li class="nav-item">
+              <div class="d-flex align-items-center">
+                <a class="nav-link collapsed" href="laptop.html">
+                  <i class="bi bi-bar-chart"></i><span>{{cat}}</span>
                 </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-circle"></i><span>Convertible</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-circle"></i><span>Midsize-SUV</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-circle"></i><span>Fullsize-SUV</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-circle"></i><span>Trucks</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-circle"></i><span>Vans</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-circle"></i><span>Trailers</span>
-                </a>
-              </li>
-        </ul>
-      </li>
-      <!-- End car nav -->
+                <i data-bs-target="#{{cat}}"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
+              </div>
+
+              <ul id="{{cat}}" class="nav-content collapse" data-bs-parent="#r1-nav">
 
 
+              {% for name in column_names%}
+                {% if name != 'id' %}
+                      {% if rows[0][name] == cat %}
 
-      <!-- start carparts nav -->
-      <li class="nav-item">
-        <div class="d-flex align-items-center">
-          <a class="nav-link collapsed" href="index.html">
-            <i class="bi bi-bar-chart"></i><span>Car parts/Accessories</span>
-          </a>
-          <i data-bs-target="#carpart-nav"  data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
-        </div>
-        <ul id="carpart-nav" class="nav-content collapse" data-bs-parent="#r1-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Parts</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">Transmission</a></li>
-              <li><a class="dropdown-item" href="#">Engine</a></li>
-              <li><a class="dropdown-item" href="#">AC parts</a></li>
-              <li><a class="dropdown-item" href="#">Radiator</a></li>
-              <li><a class="dropdown-item" href="#">Tires</a></li>
-              <li><a class="dropdown-item" href="#">Battery</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-circle"></i><span>Accessories</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
-              <li><a class="dropdown-item" href="#">Dashboard cover</a></li>
-              <li><a class="dropdown-item" href="#">Steering Cover</a></li>
-              <li><a class="dropdown-item" href="#">console</a></li>
-              <li><a class="dropdown-item" href="#">Sit cover</a></li>
-              <li><a class="dropdown-item" href="#">Dashcam</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <!-- End Appliance nav -->
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tabletPartsDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-circle"></i><span>{{name.replace("_", " ")}}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tabletPartsDropdown">
+                      {% for row in rows %}
+                          {% if row[name] != "" and row[name] not in cat %}
+                              <li><a class="dropdown-item" href="#">{{ row[name] }}</a></li>
+                          {% endif %}
+                      {% endfor %}
+                        </ul>
+                      </li>
+
+                      {% endif %}
+                {% endif %}
+              {% endfor %}
+
+              </ul>
+            </li>
+            <!-- End Laptop nav -->
 
 
-
+        {% endfor %}
 
           </ul>
         </li>
@@ -810,9 +457,9 @@
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="{{ url_for('users.about') }}">
           <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
+          <span>About</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
@@ -842,11 +489,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Listings</h1>
+      <h1>{% block breadhead %}{% endblock %}</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Listings</li>
+          <li class="breadcrumb-item active">{% block breadname %}{% endblock %}</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -864,72 +511,7 @@
 
 
 
-<!-- listings Card -->
-<div class="col-xxl-3 col-md-4 col-lg-4 col-sm-6">
-  <div class="card listing">
-    <div class="card-body position-relative">
-      <a href="#" class="image-mask">
-        <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYRrgvf9gpzKh5gPNaLSg0PvkWLnDSnKoIZ9CQ1G-BnjHGKX8UiYPGrMA8J_lvHGa2ke-3tOs_B5iH1SU-jsYKjBObWF4w=s1600" class="card-img-top image-overlay limit-image">
-      </a>
-
-      <i class="bi bi-plus-square position-absolute top-0 end-0"></i>
-      <div class="d-flex">
-        <div class="col-8 card-dis">
-          <div class="row">
-            <div class="d-flex align-items-center dis-row">
-              <i class="bi bi-coin"></i>
-              <h3 class="mb-0">300000</h3>
-            </div>
-            <div class="d-flex align-items-center">
-              <i class="bi bi-laptop"></i>
-              <h5 class="mb-0">Macbook pro 2011</h5>
-            </div>
-          </div>
-
-          <div class="spec-row">
-            <div class="d-flex flex-wrap align-items-center">
-              <div>
-                <i class="bi bi-device-ssd"></i>
-                <h7 class="pe-2">128gb.ssd</h7>
-              </div>
-              <div>
-                <i class="bi bi-memory"></i>
-                <h7 class="pe-2">8gb.ddr3</h7>
-              </div>
-              <div>
-                <i class="bi bi-cpu"></i>
-                <h7 class="pe-2">i7</h7>
-              </div>
-              <div>
-                <i class="bi bi-cpu-fill"></i>
-                <h7 class="pe-2">3350M</h7>
-              </div>
-              <div>
-                <i class="bi bi-tv"></i>
-                <h7 class="pe-2">1280x800</h7>
-              </div>
-              <div>
-                <i class="bi bi-display"></i>
-                <h7 class="pe-2">LCD</h7>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-4 d-flex flex-column align-items-center justify-content-center">
-          <a href="#">
-            <i class="bi bi-star"></i>
-          </a>
-          <a href="#">
-            <i class="bi bi-star-half"></i>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-<!-- listings Card -->
+        {% block listing %}{% endblock %}
 
 
 

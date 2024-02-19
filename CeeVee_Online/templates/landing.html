@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+            body {
+                margin: 900px;
+                padding: 0;
+                animation: fadeInOut 6s infinite alternate; /* Animation duration is 6 seconds */
+                background-image: url('https://lh3.googleusercontent.com/drive-viewer/AEYmBYST5tHAqTl4hWWf3FyomUv9fKoQZrg8zDlTrZ1NjnAP_I1UK_W6fpxG8IQly99Xau883yLnHxVpmR0HIwgvYYVyhfS6=s1600?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYST5tHAqTl4hWWf3FyomUv9fKoQZrg8zDlTrZ1NjnAP_I1UK_W6fpxG8IQly99Xau883yLnHxVpmR0HIwgvYYVyhfS6=s1600'); /* Replace 'background-image.jpg' with the path to your image */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            @keyframes fadeInOut {
+                0% {
+                    opacity: 0; /* Initially invisible */
+                }
+                50% {
+                    opacity: 1; /* Fully visible */
+                }
+                100% {
+                    opacity: 0; /* Invisible again */
+                }
+            }
+    </style>
+</head>
+<body>
+    <!-- Your landing page content here -->
+    
+    <script>
+        // Function to redirect to the homepage after 3 seconds
+        setTimeout(function() {
+            window.location.href = '/home';
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
+</body>
+</html>

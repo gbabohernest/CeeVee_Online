@@ -1,0 +1,14 @@
+id,Laptop_Part,Laptop_Accessory,Desktop_Part,Desktop_Accessory,Phone_Part,Phone_Accessory,Tablet_Part,Tablet_Accessory,Console_part,Console_Accessories,Appliance_Home,Appliance_Kitchen,Server_Networking,Sound,Video_Pictures,Car,Car_Part,Car_Accessory
+1,Laptop,Laptop,Desktop,Desktop,Phone,Phone,Tablet,Tablet,Console,Console,Appliance,Appliance,Professional,Professional,Professional,Cars,Parts,Parts
+2,Screen,Charger,Graphics Card,Monitor,Screen,Case,Screen,Case,Disk Drive,Case,TV,Blender,POE/switch,Mic,DSLR,Sedans,Transmission,Dashboard Cover
+3,Motherboard,Cover/cases,Motherboard,Keyboard,Motherboard,Screen Protector,Motherboard,Keyboard Case,Drive,Controller,Sound system,Microwave Oven,Routers,Mic stand,Video Recorder,Convertibles,Engine,Steering Cover
+4,Keyboard,Cooling pads,Processor,Mouse,Battery,Lense Cover,Battery,Screen Protector,Power Supply,Games,Fan,Fridge/Freezer,Video switch,Sound mixer,Diffuser,Midsize-SUV,AC parts,Console
+5,Ram,HDMI cable,Ram,Deskpad,Body,Charger,Body,Lense Cover,Others,Dock,Air conditioner,Toaster,Nas,Pop filters,Stage light/flash,Fullsize-SUV,Radiator,Sit Cover
+6,HDD,Displayport Cable,3.5mm HDD,Speakers,Lenses,Cable,Lenses,Bluetooth Keyboard,Lenses,Sticker,Washing machine,Mixer,LAN cables,Insulations,Background,Trucks,Tries,Dashcam
+7,SSD,Dongle,Powerpack,Power Cable,Charging Port,Dock,Charging Port,Stand,Charging port,Others,Router,Others,Others,Mic stand,Camera stand,Vans,Battery,Others
+8,Battery,Others,Others,Displayport Cable ,Mic,Others,Mic,Others,Mic ,,Others,,,Others,Others,Trailers,Others,
+9,Cooling system ,,,UPS,Others,,Others,,Others,,,,,,,,,
+10,Webcam,,,Others,,,,,,,,,,,,,,
+11,Hinge,,,,,,,,,,,,,,,,,
+12,Trackpad,,,,,,,,,,,,,,,,,
+13,Others,,,,,,,,,,,,,,,,,

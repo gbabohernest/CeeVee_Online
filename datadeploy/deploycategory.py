@@ -10,10 +10,10 @@ db_config = {
 }
 
 # CSV file path
-csv_file = '/home/strangessh/workspace/CeeVee-Online/datadeploy/ceevee_category.csv'
+csv_file = '/home/strangessh/workspace/CeeVee-Online/datadeploy/Laptop_listings.csv'
 
 # Table name in the database
-table_name = 'ceevee_categories'
+table_name = 'Laptop_listings'
 
 # Connect to the database
 try:
