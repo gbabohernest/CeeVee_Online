@@ -40,7 +40,7 @@ bash cd CeeVee-Online
 ```
 
 - Set up the MySQL database and configure the database
-[Here](https://github.com/gbabohernest/CeeVee_Online/__init__.py)
+[Here](https://github.com/gbabohernest/CeeVee_Online/blob/master/__init__.py)
 
 - Update the database credentials in the Flask application configuration.
 - Start the development server.
