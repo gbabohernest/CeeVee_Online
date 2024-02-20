@@ -30,8 +30,15 @@ The project will be structured into the following directories:
 
 ## Installation and Setup
 Follow these steps to set up the project locally:
-- Clone the repository from GitHub. ```bash https://github.com/gbabohernest/CeeVee-Online.git```
-- Navigate to the project directory ```bash cd CeeVee-Online```
+- Clone the repository from GitHub.
+```
+https://github.com/gbabohernest/CeeVee-Online.git
+```
+- Navigate to the project directory
+```
+bash cd CeeVee-Online
+```
+
 - Set up the MySQL database and configure the database
 ```
 (https://github.com/gbabohernest/CeeVee_Online/blob/master/__init__.py)[Here]
