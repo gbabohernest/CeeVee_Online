@@ -32,7 +32,7 @@ The project will be structured into the following directories:
 Follow these steps to set up the project locally:
 - Clone the repository from GitHub.
 ```
-https://github.com/gbabohernest/CeeVee-Online.git
+git clone https://github.com/gbabohernest/CeeVee-Online.git
 ```
 - Navigate to the project directory
 ```
