@@ -6,6 +6,13 @@ from CeeVee_Online.users.utils import send_reset_email
 
 users = Blueprint("users", __name__)
 
+
+
+
+
+
+
+
 class cat(db.Model):
     __tablename__ = 'ceevee_sidebar'
     id = db.Column(db.Integer, primary_key=True)
@@ -67,6 +74,7 @@ class laptops_listing(db.Model):
     CONDITION_BLUETOOTH = db.Column(db.String(255))
     CONDITION_AUDIO_JACK = db.Column(db.String(255))
     CONDITION_CARD_READER = db.Column(db.String(255))
+    PHOTOS = db.Column(db.String(255))
 
 
 
