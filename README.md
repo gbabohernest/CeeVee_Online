@@ -36,13 +36,11 @@ https://github.com/gbabohernest/CeeVee-Online.git
 ```
 - Navigate to the project directory
 ```
-bash cd CeeVee-Online
+cd CeeVee-Online
 ```
 
-- Set up the MySQL database and configure the database
+- Set up the MySQL database and configure the database. Update the database credentials in the Flask application configuration.
 [Here](https://github.com/gbabohernest/CeeVee_Online/blob/master/__init__.py)
-
-- Update the database credentials in the Flask application configuration.
 - Start the development server.
 ```
 python3 -m app
