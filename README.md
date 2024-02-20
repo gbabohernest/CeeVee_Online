@@ -31,17 +31,25 @@ The project will be structured into the following directories:
 ## Installation and Setup
 Follow these steps to set up the project locally:
 - Clone the repository from GitHub.
+- 
 ```bash https://github.com/gbabohernest/CeeVee-Online.git```
+
 - Navigate to the project directory
+
 ```bash cd CeeVee-Online```
 
-- Set up the MySQL database and configure the database ```bash (https://github.com/gbabohernest/CeeVee_Online/blob/master/__init__.py)[Here]```
+- Set up the MySQL database and configure the database
+
+``` (https://github.com/gbabohernest/CeeVee_Online/blob/master/__init__.py)[Here]```
+  
 - Update the database credentials in the Flask application configuration.
-6. Start the development server. ```bash python3 -m app```
+  
+- Start the development server.
 
-[//]: # (## Contribution)
+```bash python3 -m app```
 
-> (Contributions to the project are welcome from ALX Software Engineering Program students who are interested in enhancing their practical skills. Please refer to the contribution guidelines and coding standards provided in the documentation.)
+## Contribution)
+(Contributions to the project are welcome from ALX Software Engineering Program students who are interested in enhancing their practical skills. Please refer to the contribution guidelines and coding standards provided in the documentation below.)
 
 ## Acknowledgements
 This project is being developed as part of the ALX Software Engineering Program. We appreciate the program's emphasis on practical, real-world projects that contribute to our learning and skill development.
