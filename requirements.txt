@@ -23,3 +23,4 @@ flask_sqlalchemy=3.2
 PIL=1.1.7
 flask_mail=0.9.1
 pytest==8.0.0
+google_auth_oauthlib==3.0.0

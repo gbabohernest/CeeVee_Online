@@ -1,12 +1,31 @@
-from flask import render_template, Blueprint, url_for, flash, redirect, request
+import os
+import pathlib
+
+import requests
+import google.auth.transport.requests as google
+from pip._vendor import cachecontrol
+from flask import render_template, Blueprint, abort, \
+    session, url_for, flash, redirect, request
 from CeeVee_Online.users.forms import Category, SignUpForm, SignInForm, User, ResetPasswordForm, RequestResetForm
 from CeeVee_Online import bcrypt, db
 from flask_login import current_user, login_user, logout_user
 from CeeVee_Online.users.utils import send_reset_email
 from CeeVee_Online.categories.category_service import CategoryService
+from google_auth_oauthlib.flow import Flow
+from google.oauth2 import id_token
 
 users = Blueprint("users", __name__)
 category_service = CategoryService()
+GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID')
+redirect_uri = os.environ.get('REDIRECT_URI')
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
+flow = Flow.from_client_secrets_file(
+    client_secrets_file=client_secrets_file,
+    scopes=['https://www.googleapis.com/auth/userinfo.profile',
+            'https://www.googleapis.com/auth/userinfo.email', 'openid'],
+    redirect_uri=redirect_uri
+)
 
 
 # class cat(db.Model):
@@ -54,7 +73,49 @@ category_service = CategoryService()
 #     return new_lst
 
 
+# Implementing google login feature
+@users.route("/google_login")
+def google_login():
+    """Google AuthO2 login
+    """
+    authorization_url, state = flow.authorization_url()
+    session["state"] = state
+    return redirect(authorization_url)
+
+
+def login_is_required(function):
+    def wrapper(*args, **kwargs):
+        if "google_id" not in session:
+            return abort(401)
+        else:
+            return function()
+
+    return wrapper
+
+
+@users.route("/callback")
+def callback():
+    flow.fetch_token(authorization_response=request.url)
+
+    if not session["state"] == request.args["state"]:
+        abort(5000)
+    credentials = flow.credentials
+    request_session = requests.session()
+    cached_session = cachecontrol.CacheControl(request_session)
+    token_request = google.Request(session=cached_session)
+
+    id_info = id_token.verify_oauth2_token(
+        id_token=credentials._id_token,
+        request=token_request,
+        audience=GOOGLE_CLIENT_ID
+    )
+    session["google_id"] = id_info.get("sub")
+    session["name"] = id_info.get("name")
+    return redirect("/")
+
+
 @users.route("/")
+@login_is_required
 def index():
     """
     Get the columns of the cat model
@@ -68,6 +129,7 @@ def home():
 
 
 @users.route("/categories")
+@login_is_required
 def categories():
     return render_template("index.html",
                            categories=category_service.get_all_categories(),
@@ -75,21 +137,25 @@ def categories():
 
 
 @users.route("/laptops")
+@login_is_required
 def laptops():
     return render_template('laptops.html', title='Categories')
 
 
 @users.route("/listings")
+@login_is_required
 def listings():
     return render_template('listings.html', title='Listings')
 
 
 @users.route("/listing")
+@login_is_required
 def listing():
     return render_template('listing.html', title='Listing')
 
 
 @users.route("/payment")
+@login_is_required
 def payment():
     return render_template('payment.html', title='Payment')
 
@@ -142,6 +208,7 @@ def login():
 
 
 @users.route("/reset_password", methods=['GET', 'POST'])
+@login_is_required
 def reset_password():
     """Ask for a reset password request"""
     if current_user.is_authenticated:
@@ -157,6 +224,7 @@ def reset_password():
 
 
 @users.route("/reset_password/<token>", methods=['GET', 'POST'])
+@login_is_required
 def reset_token(token):
     """Reset user's token"""
     if current_user.is_authenticated:
@@ -179,7 +247,9 @@ def reset_token(token):
 
 
 @users.route("/logout")
+@login_is_required
 def logout():
     """Logout a logged-in user"""
     logout_user();
+    session.clear()
     return redirect(url_for('users.login'))

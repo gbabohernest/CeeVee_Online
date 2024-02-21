@@ -269,6 +269,12 @@
                             <span>Payment/delivery</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="{{ url_for('users.logout') }}">
+                            <i class="bi bi-truck-flatbed"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
 
                 </ul><!-- End Profile Dropdown Items -->
             </li><!-- End Profile Nav -->
@@ -285,7 +291,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="{{ url_for('users.index') }}">
+            <a class="nav-link " href="{{ url_for('products.all_products') }}">
                 <i class="bi bi-grid"></i>
                 <span>Home</span>
             </a>
@@ -296,7 +302,7 @@
         <!-- start categories nav -->
         <li class="nav-item">
             <div class="d-flex align-items-center">
-                <a class="nav-link collapsed" href="{{ url_for('users.index') }}">
+                <a class="nav-link collapsed" href="{{ url_for('products.all_products') }}">
                     <i class="bi bi-bar-chart"></i><span>Category</span>
                 </a>
                 <i data-bs-target="#cat-nav" data-bs-toggle="collapse" class="bi bi-chevron-down ms-auto"></i>
@@ -793,7 +799,7 @@
         <h1>Dashboard</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url_for('users.index') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('products.all_products') }}">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
         </nav>

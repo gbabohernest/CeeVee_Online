@@ -51,6 +51,7 @@
 
             <div class="submit-btn-wrapper">{{ form.sign_in(class="submit_btn") }}</div>
             <p>Don't have an account? <a href="{{ url_for('users.sign_up') }}">Sign up</a></p>
+            <p>Or <a href="{{ url_for('users.google_login') }}">Login with Google</a></p>
         </form>
     </section>
 
