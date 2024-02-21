@@ -18,7 +18,7 @@ def create_app(config_class=Config):
 
     with app.app_context():
         app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://strangedb:as@localhost/ceevee'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:ousmane2022&&!@localhost/ceevee'
 
         app.config.from_object(Config)
 
