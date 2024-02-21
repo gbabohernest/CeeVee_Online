@@ -1,0 +1,46 @@
+{% extends 'basee.html' %} {% block content %}
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
+  <div>
+    {{ form.price.label }}
+    {{ form.price(size=20) }}
+  </div>
+  <div>
+    {{ form.brand.label }}
+    {{ form.brand(size=20) }}
+  </div>
+  <div>
+    {{ form.brand_model.label }}
+    {{ form.brand_model(size=20) }}
+  </div>
+  <div>
+    {{ form.serial_number.label }}
+    {{ form.serial_number(size=20) }}
+  </div>
+  <div>
+    {{ form.purpose.label }}
+    {{ form.purpose(size=20) }}
+  </div>
+  <div>
+    {{ form.operating_system.label }}
+    {{ form.operating_system(size=20) }}
+  </div>
+  <div>
+    {{ form.year.label }}
+    {{ form.year(size=20) }}
+  </div>
+  <div>
+    {{ form.processor_type.label }}
+    {{ form.processor_type(size=20) }}
+  </div>
+  <div>
+    {{ form.amd_model.label }}
+    {{ form.amd_model(size=20) }}
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
+
+
+{% endblock %}

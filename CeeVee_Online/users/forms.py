@@ -40,6 +40,7 @@ class User(db.Model, UserMixin):
             return None
         return User.query.get(user_id);
 
+
 class Role(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False, unique=True)
@@ -79,7 +80,6 @@ class SignInForm(FlaskForm):
     sign_in = SubmitField('Sign In')
 
 
-
 class RequestResetForm(FlaskForm):
     """Reset Form"""
     email = StringField('Email',
@@ -98,3 +98,15 @@ class ResetPasswordForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Reset Password')
+
+
+class PostingForm(FlaskForm):
+    price = StringField('Price', validators=[DataRequired()])
+    brand = StringField('Brand', validators=[DataRequired()])
+    brand_model = StringField('Brand Model', validators=[DataRequired()])
+    serial_number = StringField('Serial Number', validators=[DataRequired()])
+    purpose = StringField('Purpose', validators=[DataRequired()])
+    operating_system = StringField('Operating System', validators=[DataRequired()])
+    year = StringField('Year', validators=[DataRequired()])
+    processor_type = StringField('Processor Type', validators=[DataRequired()])
+    amd_model = StringField('AMD Model', validators=[DataRequired()])
