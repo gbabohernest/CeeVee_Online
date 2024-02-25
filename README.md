@@ -15,7 +15,7 @@ Now, armed with over a decade of experience and the skills and connections I've 
 ## Technical Details
 The website will be developed using the following technologies:
 - **Frontend**: HTML, CSS, JavaScript, Jinja2
-- **Backend**: FLASK, Python, AuthO2
+- **Backend**: FLASK, Python, Google OAuth
 - **Database**: MYSQL
 - **Deployment**: AWS, K8s, Docker, Github Actions, etcetera
 - **IDEs**: Pycharm, VSCode
