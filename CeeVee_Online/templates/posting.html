@@ -1,46 +1,207 @@
-{% extends 'basee.html' %} {% block content %}
-<form method="POST" action="">
+{% extends 'basee.html' %} 
+
+{% block content %}
+<form method="POST" action="/submit_laptop">
+
+  <div class="container mt-2 col-lg-6 col-12">
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" for="{{ input_id }}">PRODUCT</label>
+        {{ form.PRODUCT(size=20, class = 'form-control') }}
+      </div>
+      <!-- Placed the input field inside the div -->
+      <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+    </div>
+  </div>
+
+  <div class="container mt-2 col-lg-6 col-12">
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" for="{{ input_id }}">BRAND_MODEL</label>
+        {{ form.BRAND_MODEL(size=20, class = 'form-control') }}
+      </div>
+      <!-- Placed the input field inside the div -->
+      <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+    </div>
+  </div>
+
+  <div class="container mt-2 col-lg-6 col-12">
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" for="{{ input_id }}">PRICE</label>
+        {{ form.PRICE(size=20, class = 'form-control') }}
+      </div>
+      <!-- Placed the input field inside the div -->
+      <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+    </div>
+  </div>
+
+  <div class="container mt-2 col-lg-6 col-12">
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" >SERIAL_NUMBER</label>
+        {{ form.SERIAL_NUMBER(size=20, class = 'form-control') }}
+      </div>
+      <!-- Placed the input field inside the div -->
+      <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+    </div>
+  </div>
+
+  <div class="container mt-2 col-lg-6 col-12">
+    <div class="mb-3">
+      <div class="input-group">
+        <label class="input-group-text" for="{{ input_id }}">SCREEN_SIZE</label>
+        {{ form.SCREEN_SIZE(size=20, class = 'form-control', placeholder=form.SCREEN_SIZE.label.text ) }}
+      </div>
+      <!-- Placed the input field inside the div -->
+      <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+    </div>
+  </div>
+
+
   {{ form.hidden_tag() }}
-  <div>
-    {{ form.price.label }}
-    {{ form.price(size=20) }}
-  </div>
-  <div>
-    {{ form.brand.label }}
-    {{ form.brand(size=20) }}
-  </div>
-  <div>
-    {{ form.brand_model.label }}
-    {{ form.brand_model(size=20) }}
-  </div>
-  <div>
-    {{ form.serial_number.label }}
-    {{ form.serial_number(size=20) }}
-  </div>
-  <div>
-    {{ form.purpose.label }}
-    {{ form.purpose(size=20) }}
-  </div>
-  <div>
-    {{ form.operating_system.label }}
-    {{ form.operating_system(size=20) }}
-  </div>
-  <div>
-    {{ form.year.label }}
-    {{ form.year(size=20) }}
-  </div>
-  <div>
-    {{ form.processor_type.label }}
-    {{ form.processor_type(size=20) }}
-  </div>
-  <div>
-    {{ form.amd_model.label }}
-    {{ form.amd_model(size=20) }}
-  </div>
+
+  {% for key, value in laptop_data.items() %}
+    {% if key != 'id' %}
+      {% set input_id = key + 'Input' %}
+      <div class="container mt-2 col-lg-6 col-12">
+        <div class="mb-3">
+          <div class="input-group">
+            <label class="input-group-text" for="{{ input_id }}">{{ key }}</label>
+            {{ form[key](size=20, id=input_id, class='form-control', placeholder=form[key].label.text ) }}
+          </div>
+          <!-- Placed the input field inside the div -->
+          <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+        </div>
+      </div>
+
+      {% if key == 'DRIVE_CAPACITY' %}
+        <div class="container mt-2 col-lg-6 col-12">
+          <div class="mb-3">
+            <div class="input-group">
+              <label class="input-group-text" for="{{ input_id }}">DRIVE2_TYPE</label>
+              {{ form.DRIVE2_TYPE(size=20, class = 'form-control', placeholder=form.DRIVE2_TYPE.label.text ) }}
+            </div>
+            <!-- Placed the input field inside the div -->
+            <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+          </div>
+        </div>
+        <div class="container mt-2 col-lg-6 col-12">
+          <div class="mb-3">
+            <div class="input-group">
+              <label class="input-group-text" for="{{ input_id }}">DRIVE2_CAPACITY</label>
+              {{ form.DRIVE2_CAPACITY(size=20, class = 'form-control', placeholder=form.DRIVE2_CAPACITY.label.text ) }}
+            </div>
+            <!-- Placed the input field inside the div -->
+            <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+          </div>
+        </div>
+        <div class="container mt-2 col-lg-6 col-12">
+          <div class="mb-3">
+            <div class="input-group">
+              <label class="input-group-text" for="{{ input_id }}">DRIVE3_TYPE</label>
+              {{ form.DRIVE3_TYPE(size=20, class = 'form-control', placeholder=form.DRIVE3_TYPE.label.text ) }}
+            </div>
+            <!-- Placed the input field inside the div -->
+            <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+          </div>
+        </div>
+        <div class="container mt-2 col-lg-6 col-12">
+          <div class="mb-3">
+            <div class="input-group">
+              <label class="input-group-text" for="{{ input_id }}">DRIVE3_CAPACITY</label>
+              {{ form.DRIVE3_CAPACITY(size=20, class = 'form-control', placeholder=form.DRIVE3_CAPACITY.label.text ) }}
+            </div>
+            <!-- Placed the input field inside the div -->
+            <div id="matching{{ key }}Items" class="list-group mt-3"></div>
+          </div>
+        </div>
+      {% endif %}
+
+
+    {% endif %}
+  {% endfor %}
+
   <div>
     <input type="submit" value="Submit">
   </div>
 </form>
+{% endblock %}
+
+
+
+{% block jscript %}
+<script>
+  // Iterate through each key in laptop_data
+  {% for key, value in laptop_data.items() %}
+    // Skip the 'id' key
+    {% if key != 'id' %}
+      const {{ key|lower }}Data = {{ laptop_data[key] | tojson }};
+      
+      // Function to filter items based on input value for {{ key }}
+      function filter{{ key }}Items(value) {
+        return {{ key|lower }}Data.filter(item => item.toLowerCase().includes(value.toLowerCase()));
+      }
+      
+      // Function to update the list of matching items for {{ key }}
+      function updateMatching{{ key }}Items(value) {
+        const matchingItemsDiv = document.getElementById('matching{{ key }}Items');
+        const matchingItems = filter{{ key }}Items(value);
+        
+        // Clear previous items
+        matchingItemsDiv.innerHTML = '';
+      
+        // Populate list with matching items
+        matchingItems.forEach(item => {
+          if (item.trim() !== '') { // Check if item is not empty
+            const listItem = document.createElement('a');
+            listItem.classList.add('list-group-item', 'list-group-item-action');
+            listItem.textContent = item;
+            
+            // Add click event listener to transfer selected item to input field
+            listItem.addEventListener('click', function() {
+              document.getElementById('{{ key }}Input').value = item; // Update the input field value
+              matchingItemsDiv.innerHTML = ''; // Clear the list after selection
+            });
+            
+            matchingItemsDiv.appendChild(listItem);
+          }
+        });
+      
+        // Show or hide list based on matching items
+        matchingItemsDiv.style.display = matchingItems.length > 0 ? 'block' : 'none';
+      }
+      
+      // Event listener for input field focus
+      document.getElementById('{{ key }}Input').addEventListener('focus', function(event) {
+        updateMatching{{ key }}Items(event.target.value);
+      });
+    {% endif %}
+  {% endfor %}
+
+  // Event listener to close all popups when clicking outside input fields or matching items lists
+  document.body.addEventListener('click', function(event) {
+    // Check if the clicked element is not an input field or matching items list
+    const clickedElement = event.target;
+    const isInputField = clickedElement.tagName === 'INPUT';
+    const isMatchingItemsList = clickedElement.classList.contains('list-group-item');
+
+    // If the clicked element is not an input field or matching items list, hide all matching items lists
+    if (!isInputField && !isMatchingItemsList) {
+      const matchingItemsLists = document.querySelectorAll('.list-group');
+      matchingItemsLists.forEach(list => {
+        list.style.display = 'none';
+      });
+    }
+  });
+
+
+
+
+  
+</script>
 
 
 {% endblock %}
+
+

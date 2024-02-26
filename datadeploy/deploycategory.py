@@ -4,16 +4,16 @@ import pymysql
 # Database connection details
 db_config = {
     'host': 'localhost',
-    'user': 'root',
-    'password': 'ousmane2022&&!',
+    'user': 'strangedb',
+    'password': 'as',
     'database': 'ceevee'
 }
 
 # CSV file path
-csv_file = '../datadeploy/ceevee_sidebar.csv'
+csv_file = '../datadeploy/laptop_data.csv'
 
 # Table name in the database
-table_name = 'ceevee_sidebar'
+table_name = 'Laptop_data'
 
 # Connect to the database
 try:

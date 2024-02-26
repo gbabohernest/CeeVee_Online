@@ -1,0 +1,155 @@
+{% extends "basee.html" %}
+
+{% block breadhead %}
+    Home
+{% endblock %}
+
+{% block breadname %}
+pending
+{% endblock %}
+
+
+
+{% block profilemoney %}
+
+<div class="col-12 d-flex flex-column align-items-center justify-content-center">
+
+    <i class="bi bi-person-square"></i>
+    <h2>30000</h2>
+    <span>Strange</span>
+
+</div>
+
+{% endblock %}
+
+
+
+{% block listing %}
+
+
+
+
+<div class="container post">
+    <div class="row d-flex flex-wrap justify-content-center">
+      <div class="col-lg-2 col-4 upload-container">
+        <i class="bi bi-plus-square-fill upload-icon"></i>
+        <p>FRONT</p>
+        <input type="file" id="front-upload" accept="image/*" class="d-none">
+        <img id="front-thumbnail" src="" alt="Front Image" style="max-width: 150px; max-height: 150px;" class="thumbnail d-none">
+      </div>
+      <div class="col-lg-2 col-4 upload-container">
+        <i class="bi bi-plus-square-fill upload-icon"></i>
+        <p>BACK</p>
+        <input type="file" id="back-upload" accept="image/*" class="d-none">
+        <img id="back-thumbnail" src="" alt="Back Image" style="max-width: 150px; max-height: 150px;" class="thumbnail d-none">
+      </div>
+      <div class="col-lg-2 col-4 upload-container">
+        <i class="bi bi-plus-square-fill upload-icon"></i>
+        <p>LEFT SIDE</p>
+        <input type="file" id="left-upload" accept="image/*" class="d-none">
+        <img id="left-thumbnail" src="" alt="Left Side Image" style="max-width: 150px; max-height: 150px;" class="thumbnail d-none">
+      </div>
+      <div class="col-lg-2 col-4 upload-container">
+        <i class="bi bi-plus-square-fill upload-icon"></i>
+        <p>RIGHT SIDE</p>
+        <input type="file" id="right-upload" accept="image/*" class="d-none">
+        <img id="right-thumbnail" src="" alt="Right Side Image" style="max-width: 150px; max-height: 150px;" class="thumbnail d-none">
+      </div>
+      <div class="col-lg-2 col-4 upload-container">
+        <i class="bi bi-plus-square-fill upload-icon"></i>
+        <p>SCREEN</p>
+        <input type="file" id="screen-upload" accept="image/*" class="d-none">
+        <img id="screen-thumbnail" src="" alt="Screen Image" style="max-width: 150px; max-height: 150px;" class="thumbnail d-none">
+      </div>
+    </div>
+  </div>
+
+  <div class="container defect">
+    <div class="row d-flex flex-wrap justify-content-center">
+        <div class="col-lg-2 col-4 upload-container">
+          <div class="d-flex justify-content-center">
+            <i class="bi bi-plus-square-fill upload-icon"></i>
+            <input type="file" id="left-upload" accept="image/*" class="d-none">
+            <img id="left-thumbnail" src="" alt="Left Side Image" style="max-width: 150px; max-height: 150px;" class="thumbnail d-none">
+          </div>
+          <div class="dropdown d-flex justify-content-center">
+            <p id="dropdownMenuButton">LEFT SIDE</p>
+          </div>
+          
+
+          </div>
+
+
+
+
+
+        <div class="col-lg-6 col-4">
+            <div class="dropdown d-flex justify-content-center">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  Select Defect
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Broken Screen</a></li>
+                  <li><a class="dropdown-item" href="#">Scratched screen</a></li>
+                  <li><a class="dropdown-item" href="#">bleed</a></li>
+                </ul>
+              </div>
+              
+        </div>
+    </div>
+
+  </div>
+
+
+
+{% endblock %}
+
+
+{% block jscript%}
+
+
+
+<script>
+  const uploadIcons = document.querySelectorAll('.upload-icon');
+  const uploadInputs = document.querySelectorAll('.upload-container input[type="file"]');
+  const thumbnails = document.querySelectorAll('.upload-container img');
+
+  uploadIcons.forEach((icon, index) => {
+    icon.addEventListener('click', () => {
+      uploadInputs[index].click(); // Trigger file selection dialog
+    });
+  });
+
+  uploadInputs.forEach((input, index) => {
+    input.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+
+      if (file) { // Check if a file is selected
+        const reader = new FileReader();
+        reader.onload = () => {
+          thumbnails[index].src = reader.result;
+          thumbnails[index].classList.remove('d-none'); // Show thumbnail
+          uploadIcons[index].classList.add('d-none'); // Hide upload icon
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>
+
+
+
+<script>
+  const dropdown = document.getElementById('dropdownMenuButton');
+  const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', (event) => {
+      const selectedText = event.target.textContent;
+      dropdown.innerText = selectedText;
+    });
+  });
+</script>
+
+
+{% endblock%}

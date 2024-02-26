@@ -1,2 +1,2 @@
-id,email,first_name,last_name,photo,password,role,NIN
-247247,dstrange247@gmail.com,femi,coker,,asasasasasas,admin,234567872
+id,email,first_name,last_name,photo,password,role,NIN,is_active,account
+9da3bda8-bf7b-41fd-b811-c6ced169e786,stranger@gmail.com ,itsme,coker,mario,scrypt:32768:8:1$59lpraRdguTRLrc9$eb7f47cc9eeaa0687961a3a7d44021a9d37a002dd18b3082efb11e7aeb28e3dbbbc55b031c5824356b1fca3b956617cd8c0ea204ce0ffac4ddd27ba03398dc9b,admin,234567872,,

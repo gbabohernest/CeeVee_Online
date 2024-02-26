@@ -1,0 +1,204 @@
+{% extends "basee.html" %}
+
+{% block breadhead %}
+    Home
+{% endblock %}
+
+{% block breadname %}
+
+{% endblock %}
+
+
+
+{% block profilemoney %}
+
+<div class="col-12 d-flex flex-column align-items-center justify-content-center">
+
+    <i class="bi bi-person-square"></i>
+    <h2>30000</h2>
+    <span>Strange</span>
+
+</div>
+
+{% endblock %}
+
+
+
+{% block listing %}
+
+
+
+
+
+<section class="section dashboard listing-all">
+    <div class="row">
+
+
+
+      <!-- image slideshow -->
+      <div id="manualCarousel" class="carousel slide col-lg-6 col-md-6 col-sm-12 listing-image" data-ride="carousel">
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                <!-- Wrap each image inside an anchor tag and add the necessary data attributes -->
+                <a href="https://lh3.googleusercontent.com/drive-viewer/AEYmBYRrgvf9gpzKh5gPNaLSg0PvkWLnDSnKoIZ9CQ1G-BnjHGKX8UiYPGrMA8J_lvHGa2ke-3tOs_B5iH1SU-jsYKjBObWF4w=s1600" data-lightbox="gallery" data-title="Image 1">
+                  <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYRrgvf9gpzKh5gPNaLSg0PvkWLnDSnKoIZ9CQ1G-BnjHGKX8UiYPGrMA8J_lvHGa2ke-3tOs_B5iH1SU-jsYKjBObWF4w=s1600" class="d-block w-100" alt="Image 1">
+                </a>
+              </div>
+              <div class="carousel-item">
+                <a href="https://lh3.googleusercontent.com/drive-viewer/AEYmBYR-lunshlZGsqK5KnW2rHtYfZM2aRf8WFcSier4rQoQloWHN-GGiGwDRRNQbnRY_nf6KHjooyR36ZVOewfegSQZx0ZJsw=s1600" data-lightbox="gallery" data-title="Image 2">
+                  <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYR-lunshlZGsqK5KnW2rHtYfZM2aRf8WFcSier4rQoQloWHN-GGiGwDRRNQbnRY_nf6KHjooyR36ZVOewfegSQZx0ZJsw=s1600" class="d-block w-100" alt="Image 2">
+                </a>
+              </div>
+              <div class="carousel-item">
+                <a href="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTz4bhX2oPpCPrsy3uDBeB_DoCPMRO4MfGkhHKju_70mvx01OC0hw6sGJ7gtF9OAiIEaUZTyk1j2dkIbOyi1lf2pVG2=s1600" data-lightbox="gallery" data-title="Image 3">
+                  <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTz4bhX2oPpCPrsy3uDBeB_DoCPMRO4MfGkhHKju_70mvx01OC0hw6sGJ7gtF9OAiIEaUZTyk1j2dkIbOyi1lf2pVG2=s1600" class="d-block w-100" alt="Image 3">
+                </a>
+              </div>
+              <!-- Add more carousel items as needed -->
+            </div>
+          <a class="carousel-control-prev" href="#manualCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#manualCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        
+          <div class="row mt-5 preview-container">
+            <div class="col-12">
+              <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYRrgvf9gpzKh5gPNaLSg0PvkWLnDSnKoIZ9CQ1G-BnjHGKX8UiYPGrMA8J_lvHGa2ke-3tOs_B5iH1SU-jsYKjBObWF4w=s1600" class="carousel-preview-img active current" alt="Preview Image 1">
+              <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYR-lunshlZGsqK5KnW2rHtYfZM2aRf8WFcSier4rQoQloWHN-GGiGwDRRNQbnRY_nf6KHjooyR36ZVOewfegSQZx0ZJsw=s1600" class="carousel-preview-img" alt="Preview Image 2">
+              <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTz4bhX2oPpCPrsy3uDBeB_DoCPMRO4MfGkhHKju_70mvx01OC0hw6sGJ7gtF9OAiIEaUZTyk1j2dkIbOyi1lf2pVG2=s1600" class="carousel-preview-img" alt="Preview Image 3">
+              <!-- Add more preview images as needed -->
+            </div>
+          </div>
+        </div>
+      <!-- image slideshow -->
+
+
+      <!-- seller card -->
+        <div class="listing-dis col-lg-6 col-md-6 col-sm-12">
+        <div class="d-flex flex-wrap">
+          <h1 class ='col-12'>
+            &#8358; {{laptop_list['PRICE'][listing_id - 1]}}
+          </h1>
+          <h2>
+            {{laptop_list['PRODUCT'][listing_id - 1]}}
+          </h2>
+          <h2>
+            {% for key, value in laptop_list.items() %}
+              {% if key.startswith('DD')%}
+                {{value[listing_id - 1]}}
+              {% endif %}
+            {% endfor %}
+          </h2>
+          <h2>
+            {{laptop_list['RAM_CAPACITY'][listing_id - 1]}}
+          </h2>
+        </div>
+        <div class="contact-dis col-lg-12 col-md-12 col-sm-12">
+          <div class="row">
+              <div class="person-pic col-3">
+                  <i class="bi bi-person-square"></i>
+              </div>
+              <div class="person-dis col-6">
+                  <h5 class="no-margin">strange</h5>
+                  <h7 class="no-margin">last online 4 hours ago</h7>
+                  <div class="dflex">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                  </div>
+              </div>
+              <div class="botton-dis col-2">
+                  <button class="custom-button">haggle</button>
+              </div>
+          </div>
+        </div>
+  
+        </div>
+        <!-- seller card -->
+
+
+
+        <div class="container">
+          <h2>{{laptop_list['PRODUCT'][listing_id - 1]}}</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="scrollable-table">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>Value{{listing_id}}</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+                    {% for key, value in laptop_list.items() %}
+                      {% if value[listing_id - 1] != '' and key != 'id' and key != 'post_id'%}
+                        {% if not key.startswith('CONDITION')%}
+                    <tr>
+                      <td>{{key}}</td>
+                      <td>{{value[listing_id - 1]}}</td>
+                    </tr>
+                        {%endif%}
+                      {% endif %}
+                    {% endfor %}
+
+                    <!-- Add more specifications as needed -->
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="scrollable-table">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>State</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for key, value in laptop_list.items() %}
+
+                        {% if key.startswith('CONDITION')%}
+                    <tr>
+                      <td>{{key}}</th>
+                      <td>{{value[listing_id - 1]}}</th>
+                    </tr>
+                        {%endif%}
+
+                    {% endfor %}
+                    <!-- Add more specifications as needed -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        
+
+
+
+
+      
+    </div>
+  </section>
+  
+
+
+
+
+
+
+{% endblock %}
