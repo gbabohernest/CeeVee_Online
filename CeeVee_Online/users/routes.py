@@ -228,8 +228,12 @@ def product(listing_id):
     if current_user.is_authenticated:
         full_name = current_user.first_name + ' ' + current_user.last_name
 
+    post_owner_id = laptops_listing.query.filter_by(id=listing_id).first().post_id
+    post_owner_obj = User.query.filter_by(id=post_owner_id).first()
+    post_owner = f"{post_owner_obj.first_name} {post_owner_obj.last_name}" if post_owner_obj else None
+
     # Pass the laptop_parts list to the template
-    return render_template('product.html', **template_data, laptop_list=laptop_list, listing_id=listing_id, full_name=full_name)
+    return render_template('product.html', **template_data, laptop_list=laptop_list, listing_id=listing_id, full_name=full_name, post_owner=post_owner)
 
 
 @users.route("/categories")
@@ -618,7 +622,8 @@ def submit_laptop():
     db.session.commit()
 
     # Redirect to a success page or another appropriate page
-    return 'Form submitted successfully'
+    flash('Form submitted successfully', 'success')
+    return redirect(url_for('users.listings'))
 
 
 @users.route('/delete_listing', methods=['POST'])
